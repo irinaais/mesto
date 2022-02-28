@@ -1,0 +1,8 @@
+@import url(../vendor/normalize.css);
+
+@import url(../vendor/Inter_Web/inter.css);
+
+@import url(../blocks/page/page.css);
+@import url(../blocks/page/__center/page__center.css);
+
+@import url(../blocks/header/header.css);
