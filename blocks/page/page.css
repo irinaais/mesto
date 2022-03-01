@@ -3,8 +3,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Inter", "Arial", sans-serif;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 *:hover {
-    outline: 1px red solid;
+  outline: 1px red solid;
 }
