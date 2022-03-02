@@ -1,0 +1,9 @@
+.button_add {
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  background-image: url(../../../images/plus.svg);
+  background-size: 22px;
+  width: 150px;
+  height: 50px;
+  margin-top: 38.75px;
+}
