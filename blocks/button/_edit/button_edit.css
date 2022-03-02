@@ -1,0 +1,6 @@
+.button_edit{
+    border: 1px solid #FFFFFF;
+    background-image: url(../../../images/pen.svg);
+    width: 24px;
+    height: 24px;
+}

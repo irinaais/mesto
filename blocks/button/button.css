@@ -1,3 +1,11 @@
-.button{
-    
+.button {
+  cursor: pointer;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000000;
+}  
+
+.button:hover {
+    opacity: .6;
 }
