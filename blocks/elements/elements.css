@@ -1,6 +1,6 @@
 .elements {
   padding-left: 0;
-  list-style: none;
+  list-style-type: none;
   margin-top: 47.25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
