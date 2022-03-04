@@ -7,8 +7,14 @@
   margin-bottom: 36.25px;
 }
 
-/* @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .header__line {
-    min-width: 320px;
+    min-width: 282px;
   }
-} */
+}
+
+@media screen and (max-width: 1023px) {
+  .header__line {
+    min-width: 564px;
+  }
+}

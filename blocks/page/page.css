@@ -9,3 +9,7 @@
 *:hover {
   outline: 1px red solid;
 }
+
+p {
+  margin: 0;
+}
