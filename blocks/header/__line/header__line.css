@@ -4,17 +4,19 @@
   min-width: 880px;
   height: 0px;
   margin-top: 41px;
-  margin-bottom: 36.25px;
+  /* margin-bottom: 36.25px; */
 }
 
 @media screen and (max-width: 767px) {
   .header__line {
-    min-width: 282px;
+    min-width: 320px;
+    /* max-width: 767px; */
+    /* width: 100%; */
   }
 }
 
 @media screen and (max-width: 1023px) {
   .header__line {
-    min-width: 564px;
+    /* min-width: 320px; */
   }
 }

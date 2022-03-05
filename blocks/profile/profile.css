@@ -7,6 +7,7 @@
 
 @media screen and (max-width: 767px) {
     .profile {
-      display: block;
+      flex-direction: column;
+      align-items: center;
     }
   }
