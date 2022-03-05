@@ -8,6 +8,6 @@
   .profile__block {
     /* display: block; */
     flex-direction: column;
-    
+    padding-top: 38.25px;
 }
 }

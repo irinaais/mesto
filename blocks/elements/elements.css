@@ -13,10 +13,11 @@
     /* grid-template-columns: 1fr;
     gap: 20px; */
     display: block;
+    /* margin: auto; */
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023px) and (min-width: 768px){
   .elements {
     margin-top: 44.25px;
     grid-template-columns: 1fr 1fr;

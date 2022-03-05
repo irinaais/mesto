@@ -8,15 +8,16 @@
 
 @media screen and (max-width: 767px) {
   .footer__copyright {
-    padding: 48px 0 36px 0;
+    padding: 48px 0 36px 19px;
     font-size: 14px;
     line-height: 17px;
+    /* margin: auto; */
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023px) and (min-width: 768px) {
   .footer__copyright {
-    padding: 58px 0 46px 0;
+    padding: 58px 0 46px 19px;
     font-size: 16px;
     line-height: 20px;
   }

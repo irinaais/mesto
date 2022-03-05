@@ -4,3 +4,14 @@
   line-height: 22px;
   margin-top: 16px;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__subtitle {
+    margin-top: 14px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__subtitle {
+  }
+}

@@ -16,7 +16,7 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023px) and (min-width: 768px) {
   .profile__avatar {
     width: 100px;
     height: 100px;
