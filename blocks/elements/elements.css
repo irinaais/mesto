@@ -10,10 +10,7 @@
 @media screen and (max-width: 767px) {
   .elements {
     padding-top: 38.25px;
-    /* grid-template-columns: 1fr;
-    gap: 20px; */
     display: block;
-    /* margin: auto; */
   }
 }
 
