@@ -1,6 +1,6 @@
-.element__block{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 23px;
-    margin-bottom: 31px;
+.element__block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+  margin-bottom: 31px;
 }
