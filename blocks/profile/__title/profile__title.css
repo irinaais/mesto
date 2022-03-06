@@ -2,12 +2,10 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
-  padding-top: 25.75px;
 }
 
 @media screen and (max-width: 767px) {
   .profile__title {
-    /* padding-top: 22.25px; */
     font-size: 27px;
     line-height: 33px;
   }

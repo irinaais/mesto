@@ -6,12 +6,14 @@
   /* grid-template-columns: 1fr 1fr 1fr; */
   grid-template-columns: repeat(auto-fill, minmax(min-content, 282px));
   gap: 20px 17px;
+  margin: 0;
 }
 
 @media screen and (max-width: 767px) {
   .elements {
-    padding-top: 38.25px;
+    /* padding-top: 38.25px; */
     display: block;
+    margin-top: 36px;
   }
 }
 
