@@ -2,6 +2,10 @@
     background-image: url(../../../images/Close\ Icon.svg);
     width: 32px;
     height: 32px;
-    /* margin-right: -8px; */
-    /* background: #FFFFFF; */
+    position: absolute;
+    padding: 0;
+    border: 0;
+    right: -40px;
+    top: -40px;
+    background-color: black;
 }
