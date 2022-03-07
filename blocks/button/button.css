@@ -4,8 +4,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: #000000;
-}  
+}
 
 .button:hover {
-    opacity: .6;
+  opacity: 0.6;
 }

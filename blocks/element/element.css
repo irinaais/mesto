@@ -1,6 +1,4 @@
 .element {
-  /* max-width: 282px; */
-  /* max-height: 361px; */
   background-color: #ffffff;
   border-radius: 10px;
 }
@@ -15,6 +13,5 @@
 
 @media screen and (max-width: 1023px) {
   .element {
-    
   }
 }
