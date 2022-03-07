@@ -1,15 +1,17 @@
 .header {
-    padding-top: 45px;
+  padding-top: 45px;
 }
 
 @media screen and (max-width: 767px) {
-    .header {
-        padding-top: 28px;
-    }
+  .header {
+    padding-top: 28px;
   }
+}
 
-  @media screen and (max-width: 1023px) and (min-width: 768px) {
-    .header {
-        padding-top: 38px;
-    }
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .header {
+    padding-top: 38px;
+    padding-left: 19px;
+    padding-right: 19px;
   }
+}

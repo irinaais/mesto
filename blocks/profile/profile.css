@@ -1,13 +1,19 @@
 .profile {
-    color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
-
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 767px) {
-    .profile {
-      flex-direction: column;
-      align-items: center;
-    }
+  .profile {
+    flex-direction: column;
+    align-items: center;
   }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .profile {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}

@@ -4,16 +4,27 @@
   margin-top: 47.25px;
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-columns: repeat(auto-fill, minmax(min-content, 282px));
+  grid-template-columns: repeat(3, minmax(min-content, 880px));
   gap: 20px 17px;
-  margin: 0;
+  /* margin: 0; */
+
+  background-color: red;
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {
   .elements {
     /* padding-top: 38.25px; */
-    display: block;
+    /* display: block; */
     margin-top: 36px;
+    /* grid-template-columns: minmax(min-content, 282px); */
+    grid-template-columns: 1fr;
+    /* margin-right: 19px;
+    margin-left: 19px; */
+    padding-left: 19px;
+    padding-right: 19px;
+    box-sizing: border-box;
+
   }
 }
 
@@ -22,6 +33,10 @@
     margin-top: 44.25px;
     grid-template-columns: 1fr 1fr;
     /* grid-template-columns: repeat(auto-fill, minmax(min-content, 282px)); */
-    gap: 10px 7px;
+    /* grid-template-columns: repeat(auto-fill, minmax(282px, max-content)); */
+    gap: 10px 7px;padding-left: 19px;
+    padding-left: 19px;
+    padding-right: 19px;
+    box-sizing: border-box;
   }
 }

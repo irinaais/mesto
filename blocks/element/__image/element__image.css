@@ -1,5 +1,6 @@
 .element__image{
-    max-width: 282px;
-    max-height: 282px;
+    /* max-width: 282px; */
+    /* max-height: 282px; */
     border-radius: 10px 10px 0 0;
+    width: 100%;
 }
