@@ -1,0 +1,7 @@
+.popup__close {
+    background-image: url(../../../images/Close\ Icon.svg);
+    width: 32px;
+    height: 32px;
+    margin-right: -8px;
+    /* background: #FFFFFF; */
+}

@@ -32,12 +32,12 @@
             <div class="profile__profile-info">
               <div class="profile__title-button">
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <button class="button button_edit" type="button"></button>
+                <button class="button button_edit" type="button" aria-label="Редактировать профиль"></button>
               </div>
               <p class="profile__subtitle">Исследователь океана</p>
             </div>
           </div>
-          <button class="button button_add" type="button"></button>
+          <button class="button button_add" type="button" aria-label="Добавить фотографии"></button>
         </section>
 
         <section class="cards page__center">
@@ -50,7 +50,7 @@
               />
               <div class="element__block">
                 <h2 class="element__town">Карачаевск</h2>
-                <button class="button button_like" type="button"></button>
+                <button class="button button_like" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
 
@@ -62,7 +62,7 @@
               />
               <div class="element__block">
                 <h2 class="element__town">Гора Эльбрус</h2>
-                <button class="button button_like" type="button"></button>
+                <button class="button button_like" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
 
@@ -74,7 +74,7 @@
               />
               <div class="element__block">
                 <h2 class="element__town">Домбай</h2>
-                <button class="button button_like" type="button"></button>
+                <button class="button button_like" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
 
@@ -86,7 +86,7 @@
               />
               <div class="element__block">
                 <h2 class="element__town">Гора Эльбрус</h2>
-                <button class="button button_like" type="button"></button>
+                <button class="button button_like" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
 
@@ -98,7 +98,7 @@
               />
               <div class="element__block">
                 <h2 class="element__town">Домбай</h2>
-                <button class="button button_like" type="button"></button>
+                <button class="button button_like" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
 
@@ -110,7 +110,7 @@
               />
               <div class="element__block">
                 <h2 class="element__town">Карачаевск</h2>
-                <button class="button button_like" type="button"></button>
+                <button class="button button_like" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
           </ul>
@@ -120,6 +120,18 @@
       <footer class="footer page__center">
         <p class="footer__copyright">© 2022. Ирина Осипова</p>
       </footer>
+    </div>
+
+    <div class="popup">
+      <div class="popup__edit">
+        <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <p class="popup__subtitle"></p>
+        <p class="popup__subtitle"></p>
+        <button class="popup__save" type="submit" aria-label="Сохранить информацию">
+          <p class="popup__save-text">Сохранить</p>
+        </button>
+      </div>
     </div>
   </body>
 </html>
