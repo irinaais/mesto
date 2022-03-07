@@ -6,6 +6,8 @@
   top: 438px;
   background: #000000;
   border-radius: 2px;
+  /* margin: 0 */
+  margin: 48px 36px 0;
 }
 
 .popup__save-text {
