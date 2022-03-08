@@ -1,6 +1,8 @@
 const popup = document.querySelector(".popup");
 const openPopup = document.querySelector(".popup-open");
 const closePopup = popup.querySelector(".popup__close");
+const nameUser = document.querySelector(".profile__title");
+const nameUserPopup = popup.querySelector(".name-user");
 
 function togglePopup() {
   popup.classList.toggle("popup__opened");
@@ -15,3 +17,6 @@ popup.addEventListener("click", function (event) {
 openPopup.addEventListener("click", togglePopup, true);
 
 closePopup.addEventListener("click", togglePopup, true);
+
+// nameUser = nameUserPopup;
+console.log(nameUser);

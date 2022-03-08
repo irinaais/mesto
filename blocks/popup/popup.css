@@ -7,24 +7,10 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 195px 425px 0 425px;
+  padding: 195px 0 0 0;
   display: none;
 }
 
 input {
   border: none;
 }
-/* 
-627px
-
-@media screen and (max-width: 767px) {
-  .popup {
-    
-  }
-}
-
-@media screen and (max-width: 1023px) and (min-width: 768px) {
-  .popup {
-    padding: 195px 425px 0 313px;
-  }
-} */
