@@ -8,8 +8,3 @@
     margin-top: 22.25px;
   }
 }
-
-@media screen and (max-width: 1023px) {
-  .profile__profile-info {
-  }
-}
