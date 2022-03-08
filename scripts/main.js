@@ -12,6 +12,6 @@ popup.addEventListener("click", function (event) {
   }
 });
 
-openPopup.addEventListener("click", togglePopup);
+openPopup.addEventListener("click", togglePopup, true);
 
-closePopup.addEventListener("click", togglePopup);
+closePopup.addEventListener("click", togglePopup, true);
