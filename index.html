@@ -126,8 +126,12 @@
       <div class="popup__edit">
         <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <p class="popup__subtitle"></p>
-        <p class="popup__subtitle"></p>
+        <div class="popup__info">
+          <!-- <label for="name">Введите имя и фамилию</label> -->
+          <input class="popup__info-string" type="text" id="name" name="name" required minlength="4" maxlength="30" size="14">
+          <!-- <label for="work">Введите вид деятельности</label> -->
+          <input class="popup__info-string" type="text" id="work" name="work" required minlength="4" maxlength="30" size="14">
+        </div>
         <button class="popup__save" type="submit" aria-label="Сохранить информацию">
           <p class="popup__save-text">Сохранить</p>
         </button>
