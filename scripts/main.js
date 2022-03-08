@@ -1,9 +1,8 @@
 const popup = document.querySelector(".popup");
 const openPopup = document.querySelector(".popup-open");
 const closePopup = popup.querySelector(".popup__close");
-const nameUser = document.querySelector(".profile__title");
-const nameUserPopup = popup.querySelector(".name-user");
 
+// === popup ===
 function togglePopup() {
   popup.classList.toggle("popup__opened");
 }
@@ -18,5 +17,12 @@ openPopup.addEventListener("click", togglePopup, true);
 
 closePopup.addEventListener("click", togglePopup, true);
 
-// nameUser = nameUserPopup;
-console.log(nameUser);
+
+// === inputs ===
+const nameUser = document.querySelector(".profile__title");
+const nameUserPopup = popup.querySelector(".name-user");
+const workUser = document.querySelector(".profile__subtitle");
+const workUserPopup = popup.querySelector(".work-user");
+
+nameUserPopup.value = nameUser.innerText;
+workUserPopup.value = workUser.innerText;
