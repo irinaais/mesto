@@ -1,10 +1,10 @@
-.profile__block {
+.profile__section {
   display: flex;
   padding-top: 62px;
 }
 
 @media screen and (max-width: 767px) {
-  .profile__block {
+  .profile__section {
     flex-direction: column;
     padding-top: 38.25px;
   }
