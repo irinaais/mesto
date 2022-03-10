@@ -23,11 +23,13 @@ const nameUserInput = popup.querySelector(".name-user");
 const workUserLabel = document.querySelector(".profile__subtitle");
 const workUserInput = popup.querySelector(".work-user");
 const saveButton = popup.querySelector(".popup__save-button");
+const formElement = document.querySelector('.popup__edit');
 
 nameUserInput.value = nameUserLabel.innerText;
 workUserInput.value = workUserLabel.innerText;
 
-saveButton.addEventListener("click", function () {
+formElement.addEventListener('submit', function(){
+  event.preventDefault();
   nameUserLabel.innerText = nameUserInput.value;
   workUserLabel.innerText = workUserInput.value;
   popup.classList.remove("popup__opened");
