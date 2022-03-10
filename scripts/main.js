@@ -1,6 +1,6 @@
 const popup = document.querySelector(".popup");
 const openPopup = document.querySelector(".button_edit");
-const closePopup = popup.querySelector(".popup__close");
+const closePopup = popup.querySelector(".popup__close-button");
 
 // === popup ===
 function togglePopup() {
@@ -22,7 +22,7 @@ const nameUserLabel = document.querySelector(".profile__title");
 const nameUserInput = popup.querySelector(".name-user");
 const workUserLabel = document.querySelector(".profile__subtitle");
 const workUserInput = popup.querySelector(".work-user");
-const saveButton = popup.querySelector(".popup__save");
+const saveButton = popup.querySelector(".popup__save-button");
 
 nameUserInput.value = nameUserLabel.innerText;
 workUserInput.value = workUserLabel.innerText;
