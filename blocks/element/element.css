@@ -5,8 +5,7 @@
 
 @media screen and (max-width: 767px) {
   .element {
-    margin: auto;
-    margin-top: 20px;
     width: 100%;
+    margin: 20px auto 0;
   }
 }
