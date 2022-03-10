@@ -1,5 +1,5 @@
 const popup = document.querySelector(".popup");
-const openPopup = document.querySelector(".popup-open");
+const openPopup = document.querySelector(".button_edit");
 const closePopup = popup.querySelector(".popup__close");
 
 // === popup ===
