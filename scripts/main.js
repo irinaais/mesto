@@ -4,7 +4,7 @@ const closePopup = popup.querySelector(".popup__close-button");
 
 // === popup ===
 function togglePopup() {
-  popup.classList.toggle("popup__opened");
+  popup.classList.toggle("popup_opened");
 }
 
 popup.addEventListener("click", function (event) {
@@ -32,5 +32,5 @@ formElement.addEventListener('submit', function(){
   event.preventDefault();
   nameUserLabel.innerText = nameUserInput.value;
   workUserLabel.innerText = workUserInput.value;
-  popup.classList.remove("popup__opened");
+  popup.classList.remove("popup_opened");
 });
