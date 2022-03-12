@@ -7,3 +7,17 @@
   max-width: 330px;
   margin: 0;
 }
+
+@media screen and (max-width: 767px) {
+  .popup__title {
+    font-size: 18px;
+    padding: 25px 22px 0;
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .popup__title {
+    font-size: 20px;
+    padding: 20px 30px 0;
+  }
+}
