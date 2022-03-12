@@ -8,3 +8,7 @@
   margin-top: 5px;
   padding: 0;
 }
+
+.button_like:active {
+  background-image: url(../../../images/heart-active.svg);
+}
