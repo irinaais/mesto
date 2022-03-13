@@ -1,6 +1,6 @@
-.button_edit {
+.button_variant_edit {
   border: 1px solid #ffffff;
-  background-image: url(../../../images/pen.svg);
+  background-image: url(../../../../images/pen.svg);
   width: 24px;
   height: 24px;
   background-size: 10px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .button_edit {
+  .button_variant_edit {
     margin-top: 8px;
     margin-left: 10px;
     width: 18px;
