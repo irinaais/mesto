@@ -19,9 +19,9 @@ closePopup.addEventListener("click", togglePopup, true);
 
 // === inputs ===
 const nameUserLabel = document.querySelector(".profile__title");
-const nameUserInput = popup.querySelector(".name-user");
+const nameUserInput = popup.querySelector(".popup__input_name-user");
 const workUserLabel = document.querySelector(".profile__subtitle");
-const workUserInput = popup.querySelector(".work-user");
+const workUserInput = popup.querySelector(".popup__input_work-user");
 const saveButton = popup.querySelector(".popup__save-button");
 const formElement = document.querySelector('.popup__edit');
 
