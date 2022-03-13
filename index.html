@@ -122,15 +122,17 @@
     </div>
 
     <div class="popup">
-      <form class="popup__edit">
+      <div class="popup__edit">
+        <form>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <fieldset class="popup__info">
+            <input class="popup__input popup__input_name-user" type="text" id="name" name="name" required size="14">
+            <input class="popup__input popup__input_work-user" type="text" id="work" name="work" required size="14">
+          </fieldset>
+          <button class="button popup__save-button" type="submit" aria-label="Сохранить информацию">Сохранить</button>
+        </form>
         <button class="button popup__close-button" type="button" aria-label="Закрыть попап"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <fieldset class="popup__info">
-          <input class="popup__input popup__input_name-user" type="text" id="name" name="name" required size="14">
-          <input class="popup__input popup__input_work-user" type="text" id="work" name="work" required size="14">
-        </fieldset>
-        <button class="button popup__save-button" type="submit" aria-label="Сохранить информацию">Сохранить</button>
-      </form>
+      </div>
     </div>
 
     <script src="./scripts/main.js"></script>
