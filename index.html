@@ -1,140 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="pages/index.css" />
-    <title>Mesto</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Проектная работа 3" />
-    <meta name="keywords" content="путешествия, Россия, достопримечательности, фотографии, мир, путешествие" />
-    <meta name="author" content="Ирина Осипова" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="pages/index.css" />
+  <title>Mesto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Проектная работа 3" />
+  <meta name="keywords" content="путешествия, Россия, достопримечательности, фотографии, мир, путешествие" />
+  <meta name="author" content="Ирина Осипова" />
+</head>
 
-  <body>
-    <div class="page">
-      <header class="header page__section">
+<body>
+<div class="page">
+  <header class="header page__section">
+    <img
+            class="header__logo"
+            src="images/Vector.svg"
+            alt="Логотип проекта Место"
+    />
+  </header>
+
+  <main>
+    <section class="profile page__section">
+      <div class="profile__column">
         <img
-          class="header__logo"
-          src="images/Vector.svg"
-          alt="Логотип проекта Место"
+                class="profile__avatar"
+                src="images/jack_iv_custo.jpg"
+                alt="Аватарка"
         />
-      </header>
-
-      <main>
-        <section class="profile page__section">
-          <div class="profile__column">
-            <img
-              class="profile__avatar"
-              src="images/jack_iv_custo.jpg"
-              alt="Аватарка"
-            />
-            <div class="profile__info">
-              <div class="profile__box">
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <button class="button button_variant_edit" type="button" aria-label="Редактировать профиль"></button>
-              </div>
-              <p class="profile__subtitle">Исследователь океана</p>
-            </div>
+        <div class="profile__info">
+          <div class="profile__box">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="button button_variant_edit" type="button" aria-label="Редактировать профиль"></button>
           </div>
-          <button class="button button_variant_add" type="button" aria-label="Добавить фотографии"></button>
-        </section>
-
-        <section class="cards page__section">
-          <ul class="elements">
-            <li class="element">
-              <img
-                class="element__image"
-                src="images/kirill-pershin-1088404-unsplash.jpg"
-                alt="Карачаевск"
-              />
-              <div class="element__box">
-                <h2 class="element__town">Карачаевск</h2>
-                <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
-              </div>
-            </li>
-
-            <li class="element">
-              <img
-                class="element__image"
-                src="images/kirill-pershin-1404681-unsplash.png"
-                alt="Гора Эльбрус"
-              />
-              <div class="element__box">
-                <h2 class="element__town">Гора Эльбрус</h2>
-                <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
-              </div>
-            </li>
-
-            <li class="element">
-              <img
-                class="element__image"
-                src="images/kirill-pershin-1556355-unsplash.png"
-                alt="Домбай"
-              />
-              <div class="element__box">
-                <h2 class="element__town">Домбай</h2>
-                <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
-              </div>
-            </li>
-
-            <li class="element">
-              <img
-                class="element__image"
-                src="images/kirill-pershin-1404681-unsplash.png"
-                alt="Гора Эльбрус"
-              />
-              <div class="element__box">
-                <h2 class="element__town">Гора Эльбрус</h2>
-                <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
-              </div>
-            </li>
-
-            <li class="element">
-              <img
-                class="element__image"
-                src="images/kirill-pershin-1556355-unsplash.png"
-                alt="Домбай"
-              />
-              <div class="element__box">
-                <h2 class="element__town">Домбай</h2>
-                <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
-              </div>
-            </li>
-
-            <li class="element">
-              <img
-                class="element__image"
-                src="images/kirill-pershin-1088404-unsplash.jpg"
-                alt="Карачаевск"
-              />
-              <div class="element__box">
-                <h2 class="element__town">Карачаевск</h2>
-                <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </main>
-
-      <footer class="footer page__section">
-        <p class="footer__copyright">© 2022. Ирина Осипова</p>
-      </footer>
-    </div>
-
-    <div class="popup">
-      <div class="popup__edit">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form>
-          <fieldset class="popup__info">
-            <input class="popup__input popup__input_name-user" type="text" id="name" name="name" required size="14">
-            <input class="popup__input popup__input_work-user" type="text" id="work" name="work" required size="14">
-          </fieldset>
-          <button class="button popup__save-button" type="submit" aria-label="Сохранить информацию">Сохранить</button>
-        </form>
-        <button class="button popup__close-button" type="button" aria-label="Закрыть попап"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
       </div>
-    </div>
+      <button class="button button_variant_add" type="button" aria-label="Добавить фотографии"></button>
+    </section>
 
-    <script src="./scripts/main.js"></script>
-  </body>
+    <section class="cards page__section">
+      <ul class="elements">
+        <template id="template">
+          <li class="element">
+            <img
+                    class="element__image"
+                    src="images/kirill-pershin-1088404-unsplash.jpg"
+                    alt="Карачаевск"
+            />
+            <div class="element__box">
+              <h2 class="element__town">Карачаевск</h2>
+              <button class="button button_variant_like" type="button" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer page__section">
+    <p class="footer__copyright">© 2022. Ирина Осипова</p>
+  </footer>
+</div>
+
+<div class="popup">
+  <div class="popup__edit">
+    <h2 class="popup__title">Редактировать профиль</h2>
+    <form>
+      <fieldset class="popup__info">
+        <input class="popup__input popup__input_name-user" type="text" id="name" name="name" required size="14">
+        <input class="popup__input popup__input_work-user" type="text" id="work" name="work" required size="14">
+      </fieldset>
+      <button class="button popup__save-button" type="submit" aria-label="Сохранить информацию">Сохранить</button>
+    </form>
+    <button class="button popup__close-button" type="button" aria-label="Закрыть попап"></button>
+  </div>
+</div>
+
+<script src="./scripts/main.js"></script>
+</body>
 </html>
