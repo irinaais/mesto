@@ -40,19 +40,38 @@ const popupEdit = document.querySelector(".popup_edit");
 const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
 const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
 
-function togglePopup() {
+function togglePopupEditProfile() {
   popupEdit.classList.toggle("popup_opened");
 }
 
 popupEdit.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
-    togglePopup();
+    togglePopupEditProfile();
   }
 });
 
-openPopupEditProfileButton.addEventListener("click", togglePopup, true);
+openPopupEditProfileButton.addEventListener("click", togglePopupEditProfile, true);
 
-closePopupEditProfileButton.addEventListener("click", togglePopup, true);
+closePopupEditProfileButton.addEventListener("click", togglePopupEditProfile, true);
+
+// === popup add card ===
+const popupAdd = document.querySelector(".popup_add");
+const openPopupAddCardButton = document.querySelector(".button_variant_add");
+const closePopupAddCardButton = popupAdd.querySelector(".popup__close-button");
+
+function togglePopupAddCard() {
+  popupAdd.classList.toggle("popup_opened");
+}
+
+popupAdd.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    togglePopupAddCard();
+  }
+});
+
+openPopupAddCardButton.addEventListener("click", togglePopupAddCard, true);
+
+closePopupAddCardButton.addEventListener("click", togglePopupAddCard, true);
 
 // === inputs edit profile ===
 const nameUserLabel = document.querySelector(".profile__title");
