@@ -35,7 +35,7 @@ initialCards.forEach(function (item) {
   elements.append(card);
 });
 
-// === popup edit profile ===
+// ========================== popup edit profile =========================================
 const popupEdit = document.querySelector(".popup_edit");
 const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
 const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
@@ -51,10 +51,9 @@ popupEdit.addEventListener("click", function (event) {
 });
 
 openPopupEditProfileButton.addEventListener("click", togglePopupEditProfile, true);
-
 closePopupEditProfileButton.addEventListener("click", togglePopupEditProfile, true);
 
-// === popup add card ===
+// =========================== popup add card ============================================
 const popupAdd = document.querySelector(".popup_add");
 const openPopupAddCardButton = document.querySelector(".button_variant_add");
 const closePopupAddCardButton = popupAdd.querySelector(".popup__close-button");
@@ -70,10 +69,9 @@ popupAdd.addEventListener("click", function (event) {
 });
 
 openPopupAddCardButton.addEventListener("click", togglePopupAddCard, true);
-
 closePopupAddCardButton.addEventListener("click", togglePopupAddCard, true);
 
-// === inputs edit profile ===
+// ============================ inputs edit profile ====================================
 const nameUserLabel = document.querySelector(".profile__title");
 const nameUserInput = popupEdit.querySelector(".popup__input_name-user");
 const workUserLabel = document.querySelector(".profile__subtitle");
@@ -91,7 +89,7 @@ popupEditProfileForm.addEventListener('submit', function () {
   popupEdit.classList.remove("popup_opened");
 });
 
-// === inputs add card ===
+// ========================= inputs add card ========================================
 const namePlaceInput = popupAdd.querySelector(".popup__input_name-place");
 const linkInput = popupAdd.querySelector(".popup__input_link");
 const namePlaceLabel = document.querySelector(".element__town");
@@ -104,13 +102,18 @@ popupAddCardForm.addEventListener('submit', function () {
   const elements = document.querySelector(".elements");
   const template = document.querySelector('#template').content;
   const card = template.cloneNode(true);
-  card.querySelector('.element__town').textContent = namePlaceInput.value;
+  card.querySelector('.element__town').textContent = namePlaceInput.value; //наполняем содержимым
   card.querySelector('.element__image').src = linkInput.value;
   card.querySelector('.element__image').alt = namePlaceInput.value;
-  elements.append(card);
+
+  elements.prepend(card); //создаем карточку
 
   popupAdd.classList.remove("popup_opened");
+
+  namePlaceInput.value = ""; //очищаем форму
+  linkInput.value = "";
 });
+
 
 
 
