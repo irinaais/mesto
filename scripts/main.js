@@ -37,8 +37,8 @@ initialCards.forEach(function (item) {
 
 // === popup edit profile ===
 const popupEdit = document.querySelector(".popup_edit");
-const openPopup = document.querySelector(".button_variant_edit");
-const closePopup = popupEdit.querySelector(".popup__close-button");
+const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
+const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
 
 function togglePopup() {
   popupEdit.classList.toggle("popup_opened");
@@ -50,9 +50,9 @@ popupEdit.addEventListener("click", function (event) {
   }
 });
 
-openPopup.addEventListener("click", togglePopup, true);
+openPopupEditProfileButton.addEventListener("click", togglePopup, true);
 
-closePopup.addEventListener("click", togglePopup, true);
+closePopupEditProfileButton.addEventListener("click", togglePopup, true);
 
 // === inputs edit profile ===
 const nameUserLabel = document.querySelector(".profile__title");
