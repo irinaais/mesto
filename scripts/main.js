@@ -32,17 +32,13 @@ initialCards.forEach(function (item) {
   card.querySelector('.element__town').textContent = item.name;
   card.querySelector('.element__image').src = item.link;
   card.querySelector('.element__image').alt = item.name;
-  elements.append(card);
-});
-
-// ============================= likes ============================================
-const likeButtons = document.querySelectorAll(".button_variant_like");
-
-//среди всех кнопок лайков нашли ту, по которой кликнули, и изменили модификатор
-likeButtons.forEach(function (likeButton) {
+//добавлена возможность ставить лайки
+  const likeButton = card.querySelector(".button_variant_like");
   likeButton.addEventListener('click', function () {
     likeButton.classList.toggle("button_variant_active-like");
   });
+
+  elements.append(card);
 });
 
 // ========================== popup edit profile =========================================
