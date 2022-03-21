@@ -20,6 +20,7 @@
 @import url(../blocks/button/_variant/_edit/button_variant_edit.css);
 @import url(../blocks/button/_variant/_add/button_variant_add.css);
 @import url(../blocks/button/_variant/_like/button_variant_like.css);
+@import url(../blocks/button/_variant/_active-like/button_variant_active-like.css);
 
 @import url(../blocks/cards/cards.css);
 

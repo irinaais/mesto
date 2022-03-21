@@ -1,0 +1,10 @@
+.button_variant_active-like {
+    background-image: url(../../../../images/heart-active.svg);
+    background-color: #fff;
+    min-width: 22px;
+    min-height: 19px;
+    margin-right: 30px;
+    border: none;
+    margin-top: 5px;
+    padding: 0;
+}

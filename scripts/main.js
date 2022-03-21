@@ -93,8 +93,6 @@ popupEditProfileForm.addEventListener('submit', function () {
 const namePlaceInput = popupAdd.querySelector(".popup__input_name-place");
 const linkInput = popupAdd.querySelector(".popup__input_link");
 const namePlaceLabel = document.querySelector(".element__town");
-// const linkImg = document.querySelector(".element__image")
-// const saveAddCardButton = popupAdd.querySelector(".popup__save-button");
 const popupAddCardForm = document.querySelector('.popup__add');
 
 popupAddCardForm.addEventListener('submit', function () {
@@ -114,6 +112,15 @@ popupAddCardForm.addEventListener('submit', function () {
   linkInput.value = "";
 });
 
+// ========================== likes =========================================
+const likeButtons = document.querySelectorAll(".button_variant_like");
+
+//среди всех кнопок лайков нашли ту, по которой кликнули, и изменили модификатор
+likeButtons.forEach(function (likeButton) {
+  likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle("button_variant_active-like");
+  });
+});
 
 
 
