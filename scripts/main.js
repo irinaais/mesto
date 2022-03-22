@@ -37,8 +37,18 @@ initialCards.forEach(function (item) {
   likeButton.addEventListener('click', function () {
     likeButton.classList.toggle("button_variant_active-like");
   });
+//добавлена возможность удалять карточку
+  const deleteButton = card.querySelector(".button_variant_delete");
+  deleteButton.addEventListener('click', function (event) {
+  deleteCard(event);
+  });
 
-  elements.append(card);
+  function deleteCard(event) {
+    const card = event.currentTarget.closest(".element");
+    card.remove();
+  }
+
+  elements.append(card); //создаем карточку из массива
 });
 
 // ========================== popup edit profile =========================================
@@ -115,6 +125,16 @@ popupAddCardForm.addEventListener('submit', function (event) {
     newLikeButton.classList.toggle("button_variant_active-like");
   });
 
+  const deleteButton = card.querySelector(".button_variant_delete");
+  deleteButton.addEventListener('click', function (event) {
+    deleteCard(event);
+  });
+
+  function deleteCard(event) {
+    const card = event.currentTarget.closest(".element");
+    card.remove();
+  }
+
   elements.prepend(card); //создаем карточку
 
   popupAdd.classList.remove("popup_opened");
@@ -122,3 +142,8 @@ popupAddCardForm.addEventListener('submit', function (event) {
   namePlaceInput.value = ""; //очищаем форму
   linkInput.value = "";
 });
+
+// ========================= delete card ========================================
+function deleteCard() {
+
+}
