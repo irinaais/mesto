@@ -40,13 +40,8 @@ initialCards.forEach(function (item) {
 //добавлена возможность удалять карточку
   const deleteButton = card.querySelector(".button_variant_delete");
   deleteButton.addEventListener('click', function (event) {
-  deleteCard(event);
+    deleteCard(event);
   });
-
-  function deleteCard(event) {
-    const card = event.currentTarget.closest(".element");
-    card.remove();
-  }
 
   elements.append(card); //создаем карточку из массива
 });
@@ -130,11 +125,6 @@ popupAddCardForm.addEventListener('submit', function (event) {
     deleteCard(event);
   });
 
-  function deleteCard(event) {
-    const card = event.currentTarget.closest(".element");
-    card.remove();
-  }
-
   elements.prepend(card); //создаем карточку
 
   popupAdd.classList.remove("popup_opened");
@@ -144,6 +134,8 @@ popupAddCardForm.addEventListener('submit', function (event) {
 });
 
 // ========================= delete card ========================================
-function deleteCard() {
-
+function deleteCard(event) {
+  const card = event.currentTarget.closest(".element");
+  card.remove();
 }
+
