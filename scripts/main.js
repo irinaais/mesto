@@ -25,6 +25,10 @@ const initialCards = [
   }
 ];
 
+const popupViewCard = document.querySelector(".popup_view-card");
+const popupImg = document.querySelector(".popup__img");
+const popupImgInfo = document.querySelector(".popup__img-info");
+
 initialCards.forEach(function (item) {
   const elements = document.querySelector(".elements");
   const template = document.querySelector('#template').content;
@@ -32,15 +36,24 @@ initialCards.forEach(function (item) {
   card.querySelector('.element__town').textContent = item.name;
   card.querySelector('.element__image').src = item.link;
   card.querySelector('.element__image').alt = item.name;
-//добавлена возможность ставить лайки
+  //добавлена возможность ставить лайки
   const likeButton = card.querySelector(".button_variant_like");
   likeButton.addEventListener('click', function () {
     likeButton.classList.toggle("button_variant_active-like");
   });
-//добавлена возможность удалять карточку
+  //добавлена возможность удалять карточку
   const deleteButton = card.querySelector(".button_variant_delete");
   deleteButton.addEventListener('click', function (event) {
     deleteCard(event);
+  });
+  //открытие попапа с картинкой
+  const image = card.querySelector(".element__image");
+
+  image.addEventListener('click', function () {
+    popupViewCard.classList.add("popup_opened");
+    popupImg.src = item.link;
+    popupImg.alt = item.link;
+    popupImgInfo.textContent = item.name;
   });
 
   elements.append(card); //создаем карточку из массива
@@ -139,3 +152,19 @@ function deleteCard(event) {
   card.remove();
 }
 
+// ========================= close view img card ========================================
+const closeButton = popupViewCard.querySelector(".popup__close-button");
+
+closeButton.addEventListener('click', function () {
+    popupViewCard.classList.remove("popup_opened");
+});
+
+function toggleViewCard() {
+  popupViewCard.classList.toggle("popup_opened");
+}
+
+popupViewCard.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    toggleViewCard();
+  }
+});
