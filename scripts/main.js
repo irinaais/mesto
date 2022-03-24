@@ -28,14 +28,15 @@ const initialCards = [
 const popupViewCard = document.querySelector(".popup_view-card");
 const popupImg = document.querySelector(".popup__img");
 const popupImgInfo = document.querySelector(".popup__img-info");
+const elements = document.querySelector(".elements");
 
-initialCards.forEach(function (item) {
-  const elements = document.querySelector(".elements");
+function createCard(name, link) {
   const template = document.querySelector('#template').content;
   const card = template.cloneNode(true);
-  card.querySelector('.element__town').textContent = item.name;
-  card.querySelector('.element__image').src = item.link;
-  card.querySelector('.element__image').alt = item.name;
+  const cardElementImage = card.querySelector('.element__image');
+  card.querySelector('.element__town').textContent = name;
+  cardElementImage.src = link;
+  cardElementImage.alt = name;
   //добавлена возможность ставить лайки
   const likeButton = card.querySelector(".button_variant_like");
   likeButton.addEventListener('click', function () {
@@ -51,12 +52,22 @@ initialCards.forEach(function (item) {
 
   image.addEventListener('click', function () {
     popupViewCard.classList.add("popup_opened");
-    popupImg.src = item.link;
-    popupImg.alt = item.name;
-    popupImgInfo.textContent = item.name;
+    popupImg.src = link;
+    popupImg.alt = name;
+    popupImgInfo.textContent = name;
   });
 
-  elements.append(card); //создаем карточку из массива
+  return card;
+}
+
+function renderCard(card, container) {
+  container.prepend(card);
+}
+
+// ==========================создание карточек из массива ===================================
+initialCards.forEach(function (item) {
+  const card = createCard(item.name, item.link);
+  renderCard(card, elements);
 });
 
 // ========================== popup edit profile =========================================
@@ -121,36 +132,9 @@ const popupAddCardForm = document.querySelector('.popup__add');
 
 popupAddCardForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  const elements = document.querySelector(".elements");
-  const templateContent = document.querySelector('#template').content;
-  const card = templateContent.cloneNode(true);
-  card.querySelector('.element__town').textContent = namePlaceInput.value; //наполняем содержимым
-  card.querySelector('.element__image').src = linkInput.value;
-  card.querySelector('.element__image').alt = namePlaceInput.value;
+  const card = createCard(namePlaceInput.value, linkInput.value);
 
-  //добавлена возможность ставить лайки
-  const newLikeButton = card.querySelector(".button_variant_like");
-  newLikeButton.addEventListener('click', function () {
-    newLikeButton.classList.toggle("button_variant_active-like");
-  });
-
-  //добавлена возможность удалять карточку
-  const deleteButton = card.querySelector(".button_variant_delete");
-  deleteButton.addEventListener('click', function (event) {
-    deleteCard(event);
-  });
-
-  //открытие попапа с картинкой
-  const image = card.querySelector(".element__image");
-
-  image.addEventListener('click', function () {
-    popupViewCard.classList.add("popup_opened");
-    popupImg.src = document.querySelector('.element__image').src;
-    popupImg.alt = document.querySelector('.element__town').textContent;
-    popupImgInfo.textContent = document.querySelector('.element__town').textContent;
-  });
-
-  elements.prepend(card); //создаем карточку
+  renderCard(card, elements);
 
   popupAdd.classList.remove("popup_opened");
 
@@ -168,7 +152,7 @@ function deleteCard(event) {
 const closeButton = popupViewCard.querySelector(".popup__close-button");
 
 closeButton.addEventListener('click', function () {
-    popupViewCard.classList.remove("popup_opened");
+  popupViewCard.classList.remove("popup_opened");
 });
 
 function toggleViewCard() {
