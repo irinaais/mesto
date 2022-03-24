@@ -52,7 +52,7 @@ initialCards.forEach(function (item) {
   image.addEventListener('click', function () {
     popupViewCard.classList.add("popup_opened");
     popupImg.src = item.link;
-    popupImg.alt = item.link;
+    popupImg.alt = item.name;
     popupImgInfo.textContent = item.name;
   });
 
@@ -128,14 +128,26 @@ popupAddCardForm.addEventListener('submit', function (event) {
   card.querySelector('.element__image').src = linkInput.value;
   card.querySelector('.element__image').alt = namePlaceInput.value;
 
+  //добавлена возможность ставить лайки
   const newLikeButton = card.querySelector(".button_variant_like");
   newLikeButton.addEventListener('click', function () {
     newLikeButton.classList.toggle("button_variant_active-like");
   });
 
+  //добавлена возможность удалять карточку
   const deleteButton = card.querySelector(".button_variant_delete");
   deleteButton.addEventListener('click', function (event) {
     deleteCard(event);
+  });
+
+  //открытие попапа с картинкой
+  const image = card.querySelector(".element__image");
+
+  image.addEventListener('click', function () {
+    popupViewCard.classList.add("popup_opened");
+    popupImg.src = document.querySelector('.element__image').src;
+    popupImg.alt = document.querySelector('.element__town').textContent;
+    popupImgInfo.textContent = document.querySelector('.element__town').textContent;
   });
 
   elements.prepend(card); //создаем карточку
