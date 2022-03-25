@@ -63,6 +63,8 @@ popupEdit.addEventListener("click", function (event) {
 });
 
 openPopupEditProfileButton.addEventListener('click', function () {
+  nameUserInput.value = nameUserLabel.innerText;
+  workUserInput.value = workUserLabel.innerText;
   openPopup(popupEdit);
 });
 
@@ -95,9 +97,6 @@ const workUserLabel = document.querySelector(".profile__subtitle");
 const workUserInput = popupEdit.querySelector(".popup__input_work-user");
 // const saveEditProfileButton = popupEdit.querySelector(".popup__save-button");
 const popupEditProfileForm = document.querySelector('.popup__edit');
-
-nameUserInput.value = nameUserLabel.innerText;
-workUserInput.value = workUserLabel.innerText;
 
 popupEditProfileForm.addEventListener('submit', function (event) {
   event.preventDefault();
