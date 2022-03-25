@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const popupViewCard = document.querySelector(".popup_view-card");
 const popupImg = document.querySelector(".popup__img");
 const popupImgInfo = document.querySelector(".popup__img-info");
@@ -130,7 +103,7 @@ popupEditProfileForm.addEventListener('submit', function (event) {
   event.preventDefault();
   nameUserLabel.innerText = nameUserInput.value;
   workUserLabel.innerText = workUserInput.value;
-  popupEdit.classList.remove("popup_opened");
+  closePopup(popupEdit);
 });
 
 // ========================= inputs add card ========================================
@@ -145,7 +118,7 @@ popupAddCardForm.addEventListener('submit', function (event) {
 
   renderCard(card, elements);
 
-  popupAdd.classList.remove("popup_opened");
+  closePopup(popupAdd);
 
   namePlaceInput.value = ""; //очищаем форму
   linkInput.value = "";
