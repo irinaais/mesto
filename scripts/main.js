@@ -64,6 +64,14 @@ function renderCard(card, container) {
   container.prepend(card);
 }
 
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
 // ==========================создание карточек из массива ===================================
 initialCards.forEach(function (item) {
   const card = createCard(item.name, item.link);
@@ -75,36 +83,37 @@ const popupEdit = document.querySelector(".popup_edit");
 const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
 const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
 
-function togglePopupEditProfile() {
-  popupEdit.classList.toggle("popup_opened");
-}
-
 popupEdit.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
-    togglePopupEditProfile();
+    closePopup(popupEdit);
   }
 });
 
-openPopupEditProfileButton.addEventListener("click", togglePopupEditProfile, true);
-closePopupEditProfileButton.addEventListener("click", togglePopupEditProfile, true);
+openPopupEditProfileButton.addEventListener('click', function () {
+  openPopup(popupEdit);
+});
+
+closePopupEditProfileButton.addEventListener('click', function () {
+  closePopup(popupEdit);
+});
 
 // =========================== popup add card ============================================
 const popupAdd = document.querySelector(".popup_add");
 const openPopupAddCardButton = document.querySelector(".button_variant_add");
 const closePopupAddCardButton = popupAdd.querySelector(".popup__close-button");
 
-function togglePopupAddCard() {
-  popupAdd.classList.toggle("popup_opened");
-}
-
 popupAdd.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
-    togglePopupAddCard();
+    closePopup(popupAdd);
   }
 });
 
-openPopupAddCardButton.addEventListener("click", togglePopupAddCard, true);
-closePopupAddCardButton.addEventListener("click", togglePopupAddCard, true);
+openPopupAddCardButton.addEventListener('click', function () {
+  openPopup(popupAdd);
+});
+closePopupAddCardButton.addEventListener('click', function () {
+  closePopup(popupAdd);
+});
 
 // ============================ inputs edit profile ====================================
 const nameUserLabel = document.querySelector(".profile__title");
@@ -152,15 +161,11 @@ function deleteCard(event) {
 const closeButton = popupViewCard.querySelector(".popup__close-button");
 
 closeButton.addEventListener('click', function () {
-  popupViewCard.classList.remove("popup_opened");
+  closePopup(popupViewCard);
 });
-
-function toggleViewCard() {
-  popupViewCard.classList.toggle("popup_opened");
-}
 
 popupViewCard.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
-    toggleViewCard();
+    closePopup(popupViewCard);
   }
 });
