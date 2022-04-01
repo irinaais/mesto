@@ -70,10 +70,14 @@
 <div class="popup popup_edit">
     <div class="popup__edit">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form novalidate>
+        <form class="popup__form" name="popupFormProfile" novalidate>
             <fieldset class="popup__info">
-                <input class="popup__input popup__input_name-user" type="text" name="name-user" required size="14" placeholder="Ваше имя">
-                <input class="popup__input popup__input_work-user" type="text" name="work-user" required size="14" placeholder="О себе">
+                <input class="popup__input popup__input_name-user" type="text" id="nameUser-input" required
+                       size="14" minlength="2" maxlength="40" placeholder="Ваше имя">
+<!--                <span class="popup__input-error" id="nameUser-input-error"></span>-->
+                <input class="popup__input popup__input_work-user" type="text" id="workUser-input" required
+                       size="14" minlength="2" maxlength="200" placeholder="О себе">
+<!--                <span class="popup__input-error" id="jobUser-input-error"></span>-->
             </fieldset>
             <button class="button popup__save-button" type="submit" aria-label="Сохранить информацию">Сохранить</button>
         </form>
