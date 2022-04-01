@@ -146,19 +146,19 @@ popupViewCard.addEventListener("click", function (event) {
 const formElement = document.querySelector('.popup__form');
 // console.log(formElement);
 const formInput = formElement.querySelector('.popup__input');
-// console.log(formInput);
-// const formError = formElement.querySelector(`.${formInput.id}-error`);
-// console.log(formError);
+console.log(formInput.id);
+const formError = formElement.querySelector(`.${formInput.id}-error`);
+console.log(formError);
 //показывает элемент ошибки
 const showError = (input) => {
   input.classList.add('popup__input_type_error');
   // formError.textContent = errorMessage;
-  // formError.classList.add('popup__input-error_active');
+  formError.classList.add('popup__input-error_active');
 };
 //скрывает элемент ошибки
 const hideError = (input) => {
   input.classList.remove('popup__input_type_error');
-  // formError.classList.remove('popup__input-error_active');
+  formError.classList.remove('popup__input-error_active');
 };
 //поверяет валидность формы, вызывает показ или скрытие ошибки
 const checkInputValidity = () => {
@@ -171,7 +171,6 @@ const checkInputValidity = () => {
 
 formElement.addEventListener('submit', function (evt){
   evt.preventDefault();
-  // isValid();
 });
 
 formInput.addEventListener('input', function () {

@@ -1,26 +1,27 @@
 .popup__input {
-     border-bottom: 1px solid rgb(190, 190, 190);
-     padding: 13px 0 13px;
-     font-weight: 400;
-     font-size: 14px;
-     line-height: 17px;
-     color: #000000;
-     border-top: none;
-     border-left: none;
-     border-right: none;
- }
+    border-bottom: 1px solid rgb(190, 190, 190);
+    padding: 13px 0 13px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
 
- .popup__input:focus {
-     outline: none;
- }
+.popup__input:focus {
+    outline: none;
+}
 
- .popup__input:first-child {
-     margin-top: 41px;
-     margin-bottom: 17px;
- }
+.popup__input:first-child {
+    margin-top: 41px;
+    margin-bottom: 5px;
+}
 
- @media screen and (max-width: 767px) {
-     .popup__input:first-child {
-         margin-top: 62px;
-     }
- }
+@media screen and (max-width: 767px) {
+    .popup__input:first-child {
+        margin-top: 62px;
+    }
+}
+
