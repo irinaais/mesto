@@ -143,35 +143,48 @@ popupViewCard.addEventListener("click", function (event) {
 });
 
 // ========================= validation forms ========================================
-const formElement = document.querySelector('.popup__form');
-const formInput = formElement.querySelector('.popup__input');
-const formError = formElement.querySelector(`.${formInput.id}-error`);
 //показывает элемент ошибки
-const showError = (input, errorMessage) => {
-  input.classList.add('popup__input_type_error');
-  formError.textContent = errorMessage;
-  formError.classList.add('popup__input-error_active');
+const showError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add('popup__input_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('popup__input-error_active');
 };
 //скрывает элемент ошибки
-const hideError = (input) => {
-  input.classList.remove('popup__input_type_error');
-  formError.classList.remove('popup__input-error_active');
-  formError.textContent = '';
+const hideError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('popup__input_type_error');
+  errorElement.classList.remove('popup__input-error_active');
+  errorElement.textContent = '';
 };
 //поверяет валидность формы, вызывает показ или скрытие ошибки
-const checkInputValidity = () => {
-  if (!formInput.validity.valid) {
-    showError(formInput, formInput.validationMessage);
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideError(formInput);
+    hideError(formElement, inputElement);
   }
 };
+//слушатель на все input
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  inputList.forEach((inputElement)=> {
+    inputElement.addEventListener('input', function () {
+      checkInputValidity(formElement, inputElement);
+    });
+  });
+};
+//слушатель для всей формы
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  });
+};
 
-formElement.addEventListener('submit', function (evt){
-  evt.preventDefault();
-});
+enableValidation();
 
-formInput.addEventListener('input', function () {
-  checkInputValidity();
-})
 
