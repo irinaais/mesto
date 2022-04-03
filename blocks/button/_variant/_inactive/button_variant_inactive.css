@@ -1,0 +1,6 @@
+ .button_variant_inactive {
+     background-color: #e5e5e5;
+     opacity: .2;
+     color: black;
+     border: black 1px solid;
+ }
