@@ -16,6 +16,13 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__column/profile__column.css);
 
+@import url(../blocks/button/button.css);
+@import url(../blocks/button/_variant/_edit/button_variant_edit.css);
+@import url(../blocks/button/_variant/_add/button_variant_add.css);
+@import url(../blocks/button/_variant/_like/button_variant_like.css);
+@import url(../blocks/button/_variant/_active-like/button_variant_active-like.css);
+@import url(../blocks/button/_variant/_delete/button_variant_delete.css);
+
 @import url(../blocks/cards/cards.css);
 
 @import url(../blocks/elements/elements.css);
@@ -43,11 +50,3 @@
 @import url(../blocks/popup/__view-card/popup__view-card.css);
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__img-info/popup__img-info.css);
-
-@import url(../blocks/button/button.css);
-@import url(../blocks/button/_variant/_edit/button_variant_edit.css);
-@import url(../blocks/button/_variant/_add/button_variant_add.css);
-@import url(../blocks/button/_variant/_like/button_variant_like.css);
-@import url(../blocks/button/_variant/_active-like/button_variant_active-like.css);
-@import url(../blocks/button/_variant/_delete/button_variant_delete.css);
-@import url(../blocks/button/_variant/_inactive/button_variant_inactive.css);
