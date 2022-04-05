@@ -25,6 +25,8 @@ function createCard(name, link) {
   const image = card.querySelector(".element__image");
 
   image.addEventListener('click', function () {
+    document.addEventListener('keydown', closeEscPopup);
+
     popupViewCard.classList.add("popup_opened");
     popupImg.src = link;
     popupImg.alt = name;
