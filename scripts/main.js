@@ -7,6 +7,7 @@ function createCard(name, link) {
   const template = document.querySelector('#template').content;
   const card = template.cloneNode(true);
   const cardElementImage = card.querySelector('.element__image');
+
   card.querySelector('.element__town').textContent = name;
   cardElementImage.src = link;
   cardElementImage.alt = name;
@@ -45,6 +46,12 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+function escClosePopup(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupEdit);
+  }
+}
+
 // ==========================создание карточек из массива ===================================
 initialCards.forEach(function (item) {
   const card = createCard(item.name, item.link);
@@ -58,17 +65,20 @@ const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-butto
 
 popupEdit.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
+    document.removeEventListener('keydown', escClosePopup);
     closePopup(popupEdit);
   }
 });
 
 openPopupEditProfileButton.addEventListener('click', function () {
+  document.addEventListener('keydown', escClosePopup);
   nameUserInput.value = nameUserLabel.innerText;
   workUserInput.value = workUserLabel.innerText;
   openPopup(popupEdit);
 });
 
 closePopupEditProfileButton.addEventListener('click', function () {
+  document.removeEventListener('keydown', escClosePopup);
   closePopup(popupEdit);
 });
 
