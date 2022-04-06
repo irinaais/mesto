@@ -23,9 +23,7 @@ function createCard(name, link) {
   });
   //открытие попапа с картинкой
   cardElementImage.addEventListener('click', function () {
-    document.addEventListener('keydown', closeEscPopup);
-
-    popupViewCard.classList.add("popup_opened");
+    openPopup(popupViewCard);
     popupImg.src = link;
     popupImg.alt = name;
     popupImgInfo.textContent = name;
@@ -39,6 +37,7 @@ function renderCard(card, container) {
 }
 
 function openPopup(popup) {
+  document.addEventListener('keydown', closeEscPopup);
   popup.classList.add('popup_opened');
 }
 
@@ -72,7 +71,6 @@ popupEdit.addEventListener("click", function (event) {
 });
 
 openPopupEditProfileButton.addEventListener('click', function () {
-  document.addEventListener('keydown', closeEscPopup);
   nameUserInput.value = nameUserLabel.innerText;
   workUserInput.value = workUserLabel.innerText;
   openPopup(popupEdit);
@@ -95,8 +93,8 @@ popupAdd.addEventListener("click", function (event) {
 
 openPopupAddCardButton.addEventListener('click', function () {
   openPopup(popupAdd);
-  document.addEventListener('keydown', closeEscPopup);
 });
+
 closePopupAddCardButton.addEventListener('click', function () {
   closePopup(popupAdd);
 });
