@@ -22,9 +22,7 @@ function createCard(name, link) {
     deleteCard(event);
   });
   //открытие попапа с картинкой
-  const image = card.querySelector(".element__image");
-
-  image.addEventListener('click', function () {
+  cardElementImage.addEventListener('click', function () {
     document.addEventListener('keydown', closeEscPopup);
 
     popupViewCard.classList.add("popup_opened");
