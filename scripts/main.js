@@ -104,7 +104,6 @@ const nameUserLabel = document.querySelector(".profile__title");
 const nameUserInput = popupEdit.querySelector(".popup__input_name-user");
 const workUserLabel = document.querySelector(".profile__subtitle");
 const workUserInput = popupEdit.querySelector(".popup__input_work-user");
-// const saveEditProfileButton = popupEdit.querySelector(".popup__save-button");
 const popupEditProfileForm = document.querySelector('.popup__edit');
 
 popupEditProfileForm.addEventListener('submit', function (event) {
@@ -117,8 +116,8 @@ popupEditProfileForm.addEventListener('submit', function (event) {
 // ========================= inputs add card ========================================
 const namePlaceInput = popupAdd.querySelector(".popup__input_name-place");
 const linkInput = popupAdd.querySelector(".popup__input_link");
-// const namePlaceLabel = document.querySelector(".element__town");
 const popupAddCardForm = document.querySelector('.popup__add');
+const popupAddButton = popupAddCardForm.querySelector('.popup__save-button');
 
 popupAddCardForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -126,6 +125,8 @@ popupAddCardForm.addEventListener('submit', function (event) {
 
   renderCard(card, elements);
 
+  popupAddButton.classList.add('button_variant_inactive');
+  popupAddButton.setAttribute("disabled", "disabled");
   closePopup(popupAdd);
 
   popupAddCardForm.querySelector('.popup__form').reset();
