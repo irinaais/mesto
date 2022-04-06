@@ -128,8 +128,7 @@ popupAddCardForm.addEventListener('submit', function (event) {
 
   closePopup(popupAdd);
 
-  namePlaceInput.value = ""; //очищаем форму
-  linkInput.value = "";
+  popupAddCardForm.querySelector('.popup__form').reset();
 });
 
 // ========================= delete card ========================================
