@@ -129,7 +129,7 @@ popupAddCardForm.addEventListener('submit', function (event) {
   popupAddButton.setAttribute("disabled", "disabled");
   closePopup(popupAdd);
 
-  popupAddCardForm.querySelector('.popup__form').reset();
+  event.target.reset();
 });
 
 // ========================= delete card ========================================
