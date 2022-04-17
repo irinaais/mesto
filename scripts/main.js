@@ -4,20 +4,25 @@
 // const elements = document.querySelector(".elements");
 
 class Card {
-  constructor(name, link) {
+  constructor(name, link, cardSelector) {
     this._name = name;
     this._link = link;
+    this._cardSelector = cardSelector;
   }
+
   _getTemplate() {
     const template = document
-      .querySelector('#template')
+      .querySelector(this._cardSelector)
       .content
+      .querySelector('.element')
       .cloneNode(true);
+
     return template;
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._setEventListeners();
 
     this._element.querySelector('.element__town').textContent = this._name;
     this._element.querySelector('.element__image').src = this._link;
@@ -25,16 +30,25 @@ class Card {
 
     return this._element;
   }
+
+  _setEventListeners() {
+    this._element.querySelector('.button_variant_like').addEventListener('click', () => {
+      this._like();
+    });
+  }
+
+  _like() {
+    this._element.querySelector('.button_variant_like').classList.toggle("button_variant_active-like");
+  }
 }
 
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link);
+  const card = new Card(item.name, item.link, '#template');
   const cardElement = card.generateCard();
+  const elements = document.querySelector(".elements");
 
-  document.querySelector(".elements").prepend(cardElement);
-  });
-
-
+  elements.prepend(cardElement);
+});
 
 // function createCard(name, link) {
 //   const template = document.querySelector('#template').content;
