@@ -33,12 +33,19 @@ class Card {
 
   _setEventListeners() {
     this._element.querySelector('.button_variant_like').addEventListener('click', () => {
-      this._like();
+      this._likeCard();
+    });
+    this._element.querySelector('.button_variant_delete').addEventListener('click', () => {
+      this._deleteCard();
     });
   }
 
-  _like() {
-    this._element.querySelector('.button_variant_like').classList.toggle("button_variant_active-like");
+  _likeCard() {
+    this._element.querySelector('.button_variant_like').classList.toggle('button_variant_active-like');
+  }
+
+  _deleteCard() {
+    this._element.remove();
   }
 }
 
@@ -50,24 +57,6 @@ initialCards.forEach((item) => {
   elements.prepend(cardElement);
 });
 
-// function createCard(name, link) {
-//   const template = document.querySelector('#template').content;
-//   const card = template.cloneNode(true);
-//   const cardElementImage = card.querySelector('.element__image');
-//
-//   card.querySelector('.element__town').textContent = name;
-//   cardElementImage.src = link;
-//   cardElementImage.alt = name;
-//   //добавлена возможность ставить лайки
-//   const likeButton = card.querySelector(".button_variant_like");
-//   likeButton.addEventListener('click', function () {
-//     likeButton.classList.toggle("button_variant_active-like");
-//   });
-//   //добавлена возможность удалять карточку
-//   const deleteButton = card.querySelector(".button_variant_delete");
-//   deleteButton.addEventListener('click', function (event) {
-//     deleteCard(event);
-//   });
 //   //открытие попапа с картинкой
 //   cardElementImage.addEventListener('click', function () {
 //     openPopup(popupViewCard);
