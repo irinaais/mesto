@@ -1,6 +1,6 @@
-// const popupViewCard = document.querySelector(".popup_view-card");
-// const popupImg = document.querySelector(".popup__img");
-// const popupImgInfo = document.querySelector(".popup__img-info");
+const popupViewCard = document.querySelector(".popup_view-card");
+const popupImg = document.querySelector('.popup__img');
+const popupImgInfo = document.querySelector(".popup__img-info");
 // const elements = document.querySelector(".elements");
 
 class Card {
@@ -38,6 +38,9 @@ class Card {
     this._element.querySelector('.button_variant_delete').addEventListener('click', () => {
       this._deleteCard();
     });
+    this._element.querySelector('.element__image').addEventListener('click', () => {
+      this._openPopup();
+    })
   }
 
   _likeCard() {
@@ -46,6 +49,13 @@ class Card {
 
   _deleteCard() {
     this._element.remove();
+  }
+
+  _openPopup() {
+    popupImg.src = this._link;
+    popupImg.alt = this._name;
+    popupImgInfo.textContent = this._name;
+    popupViewCard.classList.add('popup_opened');
   }
 }
 
@@ -57,25 +67,6 @@ initialCards.forEach((item) => {
   elements.prepend(cardElement);
 });
 
-//   //открытие попапа с картинкой
-//   cardElementImage.addEventListener('click', function () {
-//     openPopup(popupViewCard);
-//     popupImg.src = link;
-//     popupImg.alt = name;
-//     popupImgInfo.textContent = name;
-//   });
-//
-//   return card;
-// }
-//
-// function renderCard(card, container) {
-//   container.prepend(card);
-// }
-//
-// function openPopup(popup) {
-//   document.addEventListener('keydown', closeEscPopup);
-//   popup.classList.add('popup_opened');
-// }
 //
 // function closePopup(popup) {
 //   document.removeEventListener('keydown', closeEscPopup);
@@ -167,13 +158,7 @@ initialCards.forEach((item) => {
 //
 //   event.target.reset();
 // });
-//
-// // ========================= delete card ========================================
-// function deleteCard(event) {
-//   const card = event.currentTarget.closest(".element");
-//   card.remove();
-// }
-//
+
 // // ========================= close view img card ========================================
 // const closeButton = popupViewCard.querySelector(".popup__close-button");
 //

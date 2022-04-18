@@ -42,22 +42,6 @@
 
         <section class="cards page__section">
             <ul class="elements">
-                <template id="template">
-                    <li class="element">
-                        <img
-                                class="element__image"
-                                src="images/kirill-pershin-1088404-unsplash.jpg"
-                                alt="Карачаевск"
-                        />
-                        <button class="button button_variant_delete" type="button"
-                                aria-label="Удалить карточку"></button>
-                        <div class="element__box">
-                            <h2 class="element__town">Карачаевск</h2>
-                            <button class="button button_variant_like" type="button"
-                                    aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                </template>
             </ul>
         </section>
     </main>
@@ -114,6 +98,23 @@
         <button class="button popup__close-button" type="button" aria-label="Закрыть попап"></button>
     </div>
 </div>
+
+<template id="template">
+    <li class="element">
+        <img
+                class="element__image"
+                src="images/kirill-pershin-1088404-unsplash.jpg"
+                alt="Карачаевск"
+        />
+        <button class="button button_variant_delete" type="button"
+                aria-label="Удалить карточку"></button>
+        <div class="element__box">
+            <h2 class="element__town">Карачаевск</h2>
+            <button class="button button_variant_like" type="button"
+                    aria-label="Поставить лайк"></button>
+        </div>
+    </li>
+</template>
 
 <script src="./scripts/initialCards.js"></script>
 <script src="./scripts/main.js"></script>
