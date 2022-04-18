@@ -1,6 +1,7 @@
 const popupViewCard = document.querySelector(".popup_view-card");
 const popupImg = document.querySelector('.popup__img');
 const popupImgInfo = document.querySelector(".popup__img-info");
+const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
 // const elements = document.querySelector(".elements");
 
 class Card {
@@ -40,7 +41,10 @@ class Card {
     });
     this._element.querySelector('.element__image').addEventListener('click', () => {
       this._openPopup();
-    })
+    });
+    popupCloseButton.addEventListener('click', () => {
+      this._closePopup();
+    });
   }
 
   _likeCard() {
@@ -56,6 +60,10 @@ class Card {
     popupImg.alt = this._name;
     popupImgInfo.textContent = this._name;
     popupViewCard.classList.add('popup_opened');
+  }
+
+  _closePopup() {
+    popupViewCard.classList.remove('popup_opened');
   }
 }
 
