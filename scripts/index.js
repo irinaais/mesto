@@ -33,6 +33,8 @@ const popupImgInfo = document.querySelector(".popup__img-info");
 const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
 // const elements = document.querySelector(".elements");
 
+export {popupCloseButton};
+
 initialCards.forEach((item) => {
   const card = new Card(item.name, item.link, '#template', openCardClick, closeCardClick);
   const cardElement = card.generateCard();
@@ -75,4 +77,41 @@ popupViewCard.addEventListener("click", function (event) {
   }
 });
 
-export {popupCloseButton};
+// // ========================== popup edit profile =========================================
+const popupEdit = document.querySelector(".popup_edit");
+const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
+const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
+
+popupEdit.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closePopup(popupEdit);
+  }
+});
+
+openPopupEditProfileButton.addEventListener('click', function () {
+  nameUserInput.value = nameUserLabel.innerText;
+  workUserInput.value = workUserLabel.innerText;
+  openPopup(popupEdit);
+});
+
+closePopupEditProfileButton.addEventListener('click', function () {
+  closePopup(popupEdit);
+});
+
+
+// ============================ inputs edit profile ====================================
+const nameUserLabel = document.querySelector(".profile__title");
+const nameUserInput = popupEdit.querySelector(".popup__input_name-user");
+const workUserLabel = document.querySelector(".profile__subtitle");
+const workUserInput = popupEdit.querySelector(".popup__input_work-user");
+const popupEditProfileForm = document.querySelector('.popup__edit');
+
+popupEditProfileForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  nameUserLabel.innerText = nameUserInput.value;
+  workUserLabel.innerText = workUserInput.value;
+  closePopup(popupEdit);
+});
+
+
+
