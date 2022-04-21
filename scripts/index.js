@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import FormValidator from "./FormValidator.js";
 
 const initialCards = [
   {
@@ -27,14 +28,22 @@ const initialCards = [
   }
 ];
 
+const settings = {
+  inputError: 'popup__input_type_error',
+  inputErrorActive: 'popup__input-error_active',
+  buttonInactive: 'button_variant_inactive',
+  popupInput: '.popup__input',
+  popupSubmit: '.popup__submit',
+  popupForm: '.popup__form'
+}
+
 const popupViewCard = document.querySelector(".popup_view-card");
 const popupImg = document.querySelector('.popup__img');
 const popupImgInfo = document.querySelector(".popup__img-info");
 const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
 // const elements = document.querySelector(".elements");
 
-export {popupCloseButton};
-
+// =========================== создание карточек из массива ============================================
 initialCards.forEach((item) => {
   const card = new Card(item.name, item.link, '#template', openCardClick, closeCardClick);
   const cardElement = card.generateCard();
@@ -77,7 +86,7 @@ popupViewCard.addEventListener("click", function (event) {
   }
 });
 
-// // =========================== popup add card ============================================
+// =========================== popup add card ============================================
 const popupAdd = document.querySelector(".popup_add");
 const openPopupAddCardButton = document.querySelector(".button_variant_add");
 const closePopupAddCardButton = popupAdd.querySelector(".popup__close-button");
@@ -96,7 +105,7 @@ closePopupAddCardButton.addEventListener('click', function () {
   closePopup(popupAdd);
 });
 
-// // ========================= inputs add card ========================================
+ // ========================= inputs add card ========================================
 const namePlaceInput = popupAdd.querySelector(".popup__input_name-place");
 const linkInput = popupAdd.querySelector(".popup__input_link");
 const popupAddCardForm = document.querySelector('.popup__add');
@@ -119,7 +128,7 @@ popupAddCardForm.addEventListener('submit', function (event) {
   event.target.reset();
 });
 
-// // ========================== popup edit profile =========================================
+ // ========================== popup edit profile =========================================
 const popupEdit = document.querySelector(".popup_edit");
 const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
 const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
@@ -155,5 +164,14 @@ popupEditProfileForm.addEventListener('submit', function (event) {
   closePopup(popupEdit);
 });
 
+// =============== экземпляры класса FormValidator и валидация форм ============
+
+const validatorProfileForm = new FormValidator(settings, popupEditProfileForm);
+const validatorCardForm = new FormValidator(settings, popupAddCardForm);
+
+validatorProfileForm.enableValidation();
+validatorCardForm.enableValidation();
+
+export {popupCloseButton};
 
 
