@@ -121,8 +121,6 @@ popupAddCardForm.addEventListener('submit', function (event) {
 
   elements.prepend(cardElement);
 
-  popupAddButton.classList.add('button_variant_inactive');
-  popupAddButton.setAttribute("disabled", "disabled");
   closePopup(popupAdd);
 
   event.target.reset();
@@ -172,6 +170,6 @@ const validatorCardForm = new FormValidator(settings, popupAddCardForm);
 validatorProfileForm.enableValidation();
 validatorCardForm.enableValidation();
 
-export {popupCloseButton};
+export {popupCloseButton, openPopupAddCardButton, popupAddButton};
 
 
