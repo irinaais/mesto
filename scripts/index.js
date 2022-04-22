@@ -101,6 +101,7 @@ popupAdd.addEventListener("click", function (event) {
 });
 
 openPopupAddCardButton.addEventListener('click', function () {
+  validatorCardForm.resetValidation();
   openPopup(popupAdd);
 });
 
@@ -140,6 +141,7 @@ popupEdit.addEventListener("click", function (event) {
 openPopupEditProfileButton.addEventListener('click', function () {
   nameUserInput.value = nameUserLabel.innerText;
   workUserInput.value = workUserLabel.innerText;
+  validatorProfileForm.resetValidation();
   openPopup(popupEdit);
 });
 
@@ -157,8 +159,8 @@ const popupEditProfileForm = document.querySelector('.popup__edit');
 
 popupEditProfileForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  nameUserLabel.innerText = nameUserInput.value;
-  workUserLabel.innerText = workUserInput.value;
+  nameUserLabel.textContent = nameUserInput.value;
+  workUserLabel.textContent = workUserInput.value;
   closePopup(popupEdit);
 });
 
