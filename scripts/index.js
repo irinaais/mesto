@@ -43,12 +43,20 @@ const popupImgInfo = document.querySelector(".popup__img-info");
 const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
 const elements = document.querySelector(".elements");
 
+function createCard(name, link) {
+  const card = new Card(name, link, '#template', openCardClick, closeCardClick);
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
+function prependCard(cardElement) {
+  elements.prepend(cardElement);
+}
+
 // =========================== создание карточек из массива ============================================
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, '#template', openCardClick, closeCardClick);
-  const cardElement = card.generateCard();
-
-  elements.prepend(cardElement);
+  const cardElement = createCard(item.name, item.link);
+  prependCard(cardElement);
 });
 
 function openCardClick(name, link) {
@@ -117,10 +125,8 @@ const popupAddButton = popupAddCardForm.querySelector('.popup__save-button');
 
 popupAddCardForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  const card = new Card(namePlaceInput.value, linkInput.value, '#template', openCardClick, closeCardClick);
-  const cardElement = card.generateCard();
-
-  elements.prepend(cardElement);
+  const cardElement = createCard(namePlaceInput.value, linkInput.value);
+  prependCard(cardElement);
 
   closePopup(popupAdd);
 
