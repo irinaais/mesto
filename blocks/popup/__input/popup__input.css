@@ -1,6 +1,6 @@
 .popup__input {
     border-bottom: 1px solid rgb(190, 190, 190);
-    padding: 13px 0 13px;
+    padding: 13px 0 7px;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -15,8 +15,8 @@
 }
 
 .popup__input:first-child {
-    margin-top: 41px;
-    margin-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 13px;
 }
 
 @media screen and (max-width: 767px) {
