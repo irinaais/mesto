@@ -1,5 +1,3 @@
-import {popupCloseButton} from './index.js';
-
 export default class Card {
   constructor(name, link, cardSelector, openCardClick, closeCardClick) {
     this._name = name;
@@ -38,7 +36,7 @@ export default class Card {
     this._element.querySelector('.button_variant_delete').addEventListener('click', () => {
       this._deleteCard();
     });
-    this._element.querySelector('.element__image').addEventListener('click', () => {
+    this._cardImage.addEventListener('click', () => {
       this._openCardClick(this._name, this._link);
     });
   }

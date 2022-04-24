@@ -1,6 +1,3 @@
 .popup__input-error_active {
-    /*display: flex;*/
-    display: block;
-    /*height: 30px;*/
     padding: 0;
 }
