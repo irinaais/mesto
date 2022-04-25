@@ -1,47 +1,6 @@
-import Card from './Card.js';
-import FormValidator from "./FormValidator.js";
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-const settings = {
-  inputError: 'popup__input_type_error',
-  inputErrorActive: 'popup__input-error_active',
-  buttonInactive: 'button_variant_inactive',
-  popupInput: '.popup__input',
-  popupSubmit: '.popup__submit',
-  popupForm: '.popup__form'
-}
-
-const popupViewCard = document.querySelector(".popup_view-card");
-const popupImg = document.querySelector('.popup__img');
-const popupImgInfo = document.querySelector(".popup__img-info");
-const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
-const elements = document.querySelector(".elements");
+import Card from "../scripts/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
+import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, elements} from "../utils/constants.js"
 
 function createCard(name, link) {
   const card = new Card(name, link, '#template', openCardClick, closeCardClick);
@@ -178,6 +137,6 @@ const validatorCardForm = new FormValidator(settings, popupAddCardForm);
 validatorProfileForm.enableValidation();
 validatorCardForm.enableValidation();
 
-export {popupCloseButton, openPopupAddCardButton, popupAddButton};
+export {openPopupAddCardButton, popupAddButton};
 
 
