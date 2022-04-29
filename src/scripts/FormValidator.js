@@ -1,4 +1,4 @@
-import {openPopupAddCardButton, popupAddButton} from "../pages/index.js";
+import {openPopupAddCardButton, popupAddButton} from "../index";
 
 export default class FormValidator {
   constructor(validationSettings, formElement) {

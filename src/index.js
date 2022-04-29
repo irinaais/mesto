@@ -1,6 +1,7 @@
-import Card from "../scripts/Card.js";
-import FormValidator from "../scripts/FormValidator.js";
-import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, elements} from "../utils/constants.js"
+import Card from "./scripts/Card.js";
+import FormValidator from "./scripts/FormValidator.js"
+import "./pages/index.css"
+import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, elements} from "./utils/constants.js"
 
 function createCard(name, link) {
   const card = new Card(name, link, '#template', openCardClick, closeCardClick);

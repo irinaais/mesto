@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Это адаптивный одностраничный сайт, на котором можно создавать и удалять карточки с фотографиями и их описанием. Выполнен в рамках 4-7 проектных работ в Яндекс.Практикуме. Изначально карточки добавляются из готового массива. Адаптивная верстка осуществлена по макету из Figma, подключила шрифты, оптимизировала картинки, сделала валидацию форм. Использовала: `HTML`,  `CSS`, `JavaScript`, `ООП`, `БЭМ (Nested)`, `JS-Модули`, `Псевдоклассы и Псевдоэлементы`, `Flexbox`, `Grid`, `Стиль CamelCase`, `Template`.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irinaais/mesto.git"
+  },
+  "author": "Irina Osipova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irinaais/mesto/issues"
+  },
+  "homepage": "https://github.com/irinaais/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.5",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.7",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^6.2.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "core-js": "^3.22.3"
+  }
+}
