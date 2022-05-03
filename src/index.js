@@ -1,7 +1,8 @@
 import Card from "./scripts/Card.js";
-import FormValidator from "./scripts/FormValidator.js"
-import "./pages/index.css"
-import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, elements} from "./utils/constants.js"
+import FormValidator from "./scripts/FormValidator.js";
+import "./pages/index.css";
+import Section from "./scripts/Section.js";
+import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, NodeElements, elements} from "./utils/constants.js"
 
 function createCard(name, link) {
   const card = new Card(name, link, '#template', openCardClick, closeCardClick);
@@ -10,14 +11,24 @@ function createCard(name, link) {
 }
 
 function prependCard(cardElement) {
-  elements.prepend(cardElement);
+  NodeElements.prepend(cardElement);
 }
 
 // =========================== создание карточек из массива ============================================
-initialCards.forEach((item) => {
-  const cardElement = createCard(item.name, item.link);
-  prependCard(cardElement);
-});
+// initialCards.forEach((item) => {
+//   const cardElement = createCard(item.name, item.link);
+//   prependCard(cardElement);
+// });
+
+const defaultCardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = createCard(item.name, item.link);
+    defaultCardList.addItem(card);
+  }
+}, elements);
+
+defaultCardList.renderItems();
 
 function openCardClick(name, link) {
   popupImg.src = link;
