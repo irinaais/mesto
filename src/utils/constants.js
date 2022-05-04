@@ -35,10 +35,13 @@ const settings = {
 }
 
 const popupViewCard = document.querySelector(".popup_view-card");
+const popupAddCard = document.querySelector('.popup_add');
+const openPopupAddCardButton = document.querySelector(".button_variant_add");
+const closePopupAddCardButton = popupAddCard.querySelector(".popup__close-button");
 const popupImg = document.querySelector('.popup__img');
 const popupImgInfo = document.querySelector(".popup__img-info");
 const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
 const nodeElements = document.querySelector(".elements");
 const elements = (".elements");
 
-export {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, nodeElements, elements};
+export {initialCards, settings, popupViewCard, popupAddCard, openPopupAddCardButton, closePopupAddCardButton, popupImg, popupImgInfo, popupCloseButton, nodeElements, elements};
