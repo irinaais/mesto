@@ -38,7 +38,7 @@ const popupViewCard = document.querySelector(".popup_view-card");
 const popupImg = document.querySelector('.popup__img');
 const popupImgInfo = document.querySelector(".popup__img-info");
 const popupCloseButton = popupViewCard.querySelector('.popup__close-button');
-const NodeElements = document.querySelector(".elements");
+const nodeElements = document.querySelector(".elements");
 const elements = (".elements");
 
-export {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, NodeElements, elements};
+export {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, nodeElements, elements};

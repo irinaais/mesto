@@ -1,18 +1,28 @@
+import "./pages/index.css";
 import Card from "./scripts/Card.js";
 import FormValidator from "./scripts/FormValidator.js";
-import "./pages/index.css";
+import Popup from "./scripts/Popup.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
 import Section from "./scripts/Section.js";
-import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, NodeElements, elements} from "./utils/constants.js"
+import {initialCards, settings, popupViewCard, popupImg, popupImgInfo, popupCloseButton, nodeElements, elements} from "./utils/constants.js"
 
 function createCard(name, link) {
-  const card = new Card(name, link, '#template', openCardClick, closeCardClick);
+  const card = new Card(name, link, '#template', () => imgPopup.openPopup({name, link}), imgPopup.closePopup);
   const cardElement = card.generateCard();
   return cardElement;
 }
 
 function prependCard(cardElement) {
-  NodeElements.prepend(cardElement);
+  nodeElements.prepend(cardElement);
 }
+
+// =========================== открытие и закрытие попапа с карточкой ============================================
+const imgPopup = new PopupWithImage(popupViewCard);
+imgPopup.setEventListeners();
+
+popupCloseButton.addEventListener('click', function () {
+  imgPopup.closePopup();
+});
 
 // =========================== создание карточек из массива ============================================
 // initialCards.forEach((item) => {
@@ -30,43 +40,43 @@ const defaultCardList = new Section({
 
 defaultCardList.renderItems();
 
-function openCardClick(name, link) {
-  popupImg.src = link;
-  popupImg.alt = name;
-  popupImgInfo.textContent = name;
-  openPopup(popupViewCard);
-}
+// =========================== открытие попапа с карточкой старое============================================
 
-function closeCardClick() {
-  closePopup(popupViewCard);
-}
+// function openCardClick(name, link) {
+//   popupImg.src = link;
+//   popupImg.alt = name;
+//   popupImgInfo.textContent = name;
+//   openPopup(popupViewCard);
+// }
+//
+// function closeCardClick() {
+//   closePopup(popupViewCard);
+// }
+//
+// function openPopup(popup) {
+//   document.addEventListener('keydown', closeEscPopup);
+//   popup.classList.add('popup_opened');
+// }
+//
+// function closePopup(popup) {
+//   document.removeEventListener('keydown', closeEscPopup);
+//   popup.classList.remove('popup_opened');
+// }
+//
+// const closeEscPopup = (evt) => {
+//   if (evt.key === 'Escape') {
+//     const activePopup = document.querySelector('.popup_opened');
+//     closePopup(activePopup);
+//   }
+// }
+//
+// popupViewCard.addEventListener("click", function (event) {
+//   if (event.target === event.currentTarget) {
+//     closePopup(popupViewCard);
+//   }
+// });
 
-function openPopup(popup) {
-  document.addEventListener('keydown', closeEscPopup);
-  popup.classList.add('popup_opened');
-}
 
-function closePopup(popup) {
-  document.removeEventListener('keydown', closeEscPopup);
-  popup.classList.remove('popup_opened');
-}
-
-const closeEscPopup = (evt) => {
-  if (evt.key === 'Escape') {
-    const activePopup = document.querySelector('.popup_opened');
-    closePopup(activePopup);
-  }
-}
-
-popupViewCard.addEventListener("click", function (event) {
-  if (event.target === event.currentTarget) {
-    closePopup(popupViewCard);
-  }
-});
-
-popupCloseButton.addEventListener('click', function () {
-  closePopup(popupViewCard);
-});
 
 // =========================== popup add card ============================================
 const popupAdd = document.querySelector(".popup_add");
@@ -88,7 +98,7 @@ closePopupAddCardButton.addEventListener('click', function () {
   closePopup(popupAdd);
 });
 
- // ========================= inputs add card ========================================
+// ========================= inputs add card ========================================
 const namePlaceInput = popupAdd.querySelector(".popup__input_name-place");
 const linkInput = popupAdd.querySelector(".popup__input_link");
 const popupAddCardForm = document.querySelector('.popup__add');
@@ -104,7 +114,7 @@ popupAddCardForm.addEventListener('submit', function (event) {
   event.target.reset();
 });
 
- // ========================== popup edit profile =========================================
+// ========================== popup edit profile =========================================
 const popupEdit = document.querySelector(".popup_edit");
 const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
 const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
