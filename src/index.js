@@ -25,9 +25,9 @@ function createCard(name, link) {
   return cardElement;
 }
 
-function prependCard(cardElement) {
-  nodeElements.prepend(cardElement);
-}
+// function prependCard(cardElement) {
+//   nodeElements.prepend(cardElement);
+// }
 
 // =========================== открытие и закрытие попапа с карточкой ============================================
 const imgPopup = new PopupWithImage(popupViewCard);
@@ -92,12 +92,10 @@ defaultCardList.renderItems();
 
 
 // =========================== popup add card ============================================
-const popupWithAddCardForm = new PopupWithForm(popupAddCard, {
-  submit: (item) => {
-    const card = createCard(item);
-    const cardElement = card.generateCard();
-    defaultCardList.addItem(cardElement, 'prepend');
-  }
+const popupWithAddCardForm = new PopupWithForm(popupAddCard, (formValues) => {
+  const card = createCard(formValues.name, formValues.link);
+  defaultCardList.addItem(card);
+  popupWithAddCardForm.closePopup();
 });
 
 popupWithAddCardForm.setEventListeners();
