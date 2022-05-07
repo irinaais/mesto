@@ -29,7 +29,8 @@ const imgPopup = new PopupWithImage(popupViewCard);
 const userInfo = new UserInfo({ selectorNameUserLabel, selectorWorkUserLabel });
 
 function createCard(name, link) {
-  const card = new Card(name, link, '#template', () => imgPopup.openPopup({name, link}), imgPopup.closePopup);
+  const card = new Card(name, link, '#template', () => imgPopup.openPopup({name, link})
+  );
   const cardElement = card.generateCard();
   return cardElement;
 }
