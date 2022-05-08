@@ -25,6 +25,10 @@ export default class Popup {
       if (evt.target === evt.currentTarget) {
         this.close();
       }
-    })
+    });
+
+    this._popup
+      .querySelector(".popup__close-button")
+      .addEventListener("click", this.close.bind(this));
   }
 }

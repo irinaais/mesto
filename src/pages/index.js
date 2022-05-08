@@ -8,17 +8,13 @@ import UserInfo from "../components/UserInfo.js";
 import {
   initialCards,
   settings,
-  popupViewCard,
   popupAddCard,
   openPopupAddCardButton,
-  closePopupAddCardButton,
-  popupCloseButton,
   elements,
   selectorNameUserLabel,
   selectorWorkUserLabel,
   popupEdit,
   openPopupEditProfileButton,
-  closePopupEditProfileButton,
   nameUserInput,
   nameUserLabel,
   workUserInput,
@@ -40,10 +36,6 @@ function createCard(name, link) {
 
 // =========================== открытие и закрытие попапа с карточкой ============================================
 imgPopup.setEventListeners();
-
-popupCloseButton.addEventListener('click', function () {
-  imgPopup.close();
-});
 
 // =========================== создание карточек из массива ============================================
 const defaultCardList = new Section({
@@ -70,10 +62,6 @@ openPopupAddCardButton.addEventListener('click', function () {
   popupWithAddCardForm.open();
 });
 
-closePopupAddCardButton.addEventListener('click', function () {
-  popupWithAddCardForm.close();
-});
-
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
   userInfo.setUserInfo(formValues);
@@ -87,10 +75,6 @@ openPopupEditProfileButton.addEventListener('click', function () {
   const userData = userInfo.getUserInfo();
   nameUserInput.value = userData.nameUser;
   workUserInput.value = userData.workUser;
-});
-
-closePopupEditProfileButton.addEventListener('click', function () {
-  popupEditProfileForm.close();
 });
 
 popupEdit.addEventListener('submit', function (evt) {
