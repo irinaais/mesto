@@ -22,9 +22,9 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
   }
 
-  closePopup() {
+  close() {
     const formInputs = this._popupSelector.querySelector('.popup__form');
     formInputs.reset();
-    super.closePopup();
+    super.close();
   }
 }

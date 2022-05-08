@@ -29,7 +29,7 @@ const imgPopup = new PopupWithImage(popupViewCard);
 const userInfo = new UserInfo({ selectorNameUserLabel, selectorWorkUserLabel });
 
 function createCard(name, link) {
-  const card = new Card(name, link, '#template', () => imgPopup.openPopup({name, link})
+  const card = new Card(name, link, '#template', () => imgPopup.open({name, link})
   );
   const cardElement = card.generateCard();
   return cardElement;
@@ -39,7 +39,7 @@ function createCard(name, link) {
 imgPopup.setEventListeners();
 
 popupCloseButton.addEventListener('click', function () {
-  imgPopup.closePopup();
+  imgPopup.close();
 });
 
 // =========================== создание карточек из массива ============================================
@@ -57,18 +57,18 @@ defaultCardList.renderItems();
 const popupWithAddCardForm = new PopupWithForm(popupAddCard, (formValues) => {
   const card = createCard(formValues.name, formValues.link);
   defaultCardList.addItem(card);
-  popupWithAddCardForm.closePopup();
+  popupWithAddCardForm.close();
 });
 
 popupWithAddCardForm.setEventListeners();
 
 openPopupAddCardButton.addEventListener('click', function () {
   validatorCardForm.resetValidation();
-  popupWithAddCardForm.openPopup();
+  popupWithAddCardForm.open();
 });
 
 closePopupAddCardButton.addEventListener('click', function () {
-  popupWithAddCardForm.closePopup();
+  popupWithAddCardForm.close();
 });
 
 // ========================== popup edit profile =========================================
@@ -80,21 +80,21 @@ popupEditProfileForm.setEventListeners();
 
 openPopupEditProfileButton.addEventListener('click', function () {
   validatorProfileForm.resetValidation();
-  popupEditProfileForm.openPopup();
+  popupEditProfileForm.open();
   const userData = userInfo.getUserInfo();
   nameUserInput.value = userData.nameUser;
   workUserInput.value = userData.workUser;
 });
 
 closePopupEditProfileButton.addEventListener('click', function () {
-  popupEditProfileForm.closePopup();
+  popupEditProfileForm.close();
 });
 
 popupEdit.addEventListener('submit', function (evt) {
   evt.preventDefault();
   nameUserLabel.textContent = nameUserInput.value;
   workUserLabel.textContent = workUserInput.value;
-  popupEditProfileForm.closePopup();
+  popupEditProfileForm.close();
 })
 
 // =============== экземпляры класса FormValidator и валидация форм ============
