@@ -1,5 +1,3 @@
-import {popupAddButton, openPopupAddCardButton} from "../utils/constants.js";
-
 export default class FormValidator {
   constructor(validationSettings, formElement) {
     this._validationSettings = validationSettings;
@@ -23,10 +21,6 @@ export default class FormValidator {
         this._toggleButtonState();
       })
     })
-    openPopupAddCardButton.addEventListener('click', function (event) {
-      popupAddButton.classList.add('button_variant_inactive');
-      popupAddButton.setAttribute("disabled", "disabled");
-    });
   }
 
   _checkInputValidity(inputElement) {
