@@ -52,7 +52,7 @@ export default class FormValidator {
   }
 
   _toggleButtonState() {
-    const isFormValid = this._inputList.every((input) => input.checkValidity());
+    const isFormValid = this._formElement.querySelector('.popup__form').checkValidity();
     this._buttonElement.classList.toggle(this._validationSettings.buttonInactive, !isFormValid);
     this._buttonElement.disabled = !isFormValid;
   }
