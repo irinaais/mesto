@@ -35,8 +35,11 @@ const settings = {
 }
 
 const popupViewCard = document.querySelector(".popup_view-card");
+const selectorPopupViewCard = (".popup_view-card");
 const popupAddCard = document.querySelector('.popup_add');
+const selectorPopupAddCard = ('.popup_add');
 const popupEdit = document.querySelector(".popup_edit");
+const selectorPopupEditProfile = (".popup_edit");
 const popupAddButton = popupAddCard.querySelector('.popup__save-button');
 const openPopupAddCardButton = document.querySelector(".button_variant_add");
 const openPopupEditProfileButton = document.querySelector(".button_variant_edit");
@@ -60,4 +63,5 @@ const selectorWorkUserLabel = (".profile__subtitle");
 export {initialCards, settings, popupViewCard, popupAddCard, openPopupAddCardButton, closePopupAddCardButton, popupImg,
   popupImgInfo, popupCloseButton, nodeElements, elements, selectorNameUserInput, selectorWorkUserInput,
   selectorNameUserLabel, selectorWorkUserLabel, popupEdit, popupAddButton, openPopupEditProfileButton,
-  closePopupEditProfileButton, nameUserInput, nameUserLabel, workUserInput, workUserLabel};
+  closePopupEditProfileButton, nameUserInput, nameUserLabel, workUserInput, workUserLabel, selectorPopupViewCard,
+  selectorPopupAddCard, selectorPopupEditProfile};

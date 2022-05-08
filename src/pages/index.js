@@ -23,9 +23,12 @@ import {
   nameUserLabel,
   workUserInput,
   workUserLabel,
+  selectorPopupViewCard,
+  selectorPopupAddCard,
+  selectorPopupEditProfile
 } from "../utils/constants.js";
 
-const imgPopup = new PopupWithImage(popupViewCard);
+const imgPopup = new PopupWithImage(selectorPopupViewCard);
 const userInfo = new UserInfo({ selectorNameUserLabel, selectorWorkUserLabel });
 
 function createCard(name, link) {
@@ -54,7 +57,7 @@ const defaultCardList = new Section({
 defaultCardList.renderItems();
 
 // =========================== popup add card ============================================
-const popupWithAddCardForm = new PopupWithForm(popupAddCard, (formValues) => {
+const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
   const card = createCard(formValues.name, formValues.link);
   defaultCardList.addItem(card);
   popupWithAddCardForm.close();
@@ -72,7 +75,7 @@ closePopupAddCardButton.addEventListener('click', function () {
 });
 
 // ========================== popup edit profile =========================================
-const popupEditProfileForm = new PopupWithForm(popupEdit, (formValues) => {
+const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
   userInfo.setUserInfo(formValues);
 });
 
