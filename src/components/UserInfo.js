@@ -1,25 +1,19 @@
-import {
-  selectorNameUserLabel,
-  selectorWorkUserLabel
-} from "../utils/constants.js";
-
 export default class UserInfo {
-  constructor(selectorsUserInputs) {
-    this._nameUser = document.querySelector(selectorNameUserLabel).textContent;
-    this._workUser = document.querySelector(selectorWorkUserLabel).textContent;
-
+  constructor({nameUserSelector, workUserSelector}) {
+    this._nameUser = document.querySelector(nameUserSelector);
+    this._workUser = document.querySelector(workUserSelector);
   }
 
   getUserInfo() {
     const info = {
-      nameUser: this._nameUser,
-      workUser: this._workUser
+      nameUser: this._nameUser.textContent,
+      workUser: this._workUser.textContent,
     };
     return info;
   }
 
-  setUserInfo(info) {
-    this._nameUser = info.nameUser;
-    this._workUser = info.workUser;
+  setUserInfo(formValues) {
+    this._nameUser.textContent = formValues.nameUser;
+    this._workUser.textContent = formValues.workUser;
   }
 }

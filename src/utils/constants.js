@@ -56,10 +56,10 @@ const nameUserInput = popupEdit.querySelector(".popup__input_name-user");
 const workUserInput = popupEdit.querySelector(".popup__input_work-user");
 // const selectorNameUserInput = (".popup__input_name-user");
 // const selectorWorkUserInput = (".popup__input_work-user");
-const selectorNameUserLabel = (".profile__title");
-const selectorWorkUserLabel = (".profile__subtitle");
+const nameUserLabelSelector = (".profile__title");
+const workUserLabelSelector = (".profile__subtitle");
 
 
 export {initialCards, settings, popupAddCard, openPopupAddCardButton, elements,
-  selectorNameUserLabel, selectorWorkUserLabel, popupEdit, openPopupEditProfileButton, nameUserInput, nameUserLabel,
+  nameUserLabelSelector, workUserLabelSelector, popupEdit, openPopupEditProfileButton, nameUserInput, nameUserLabel,
   workUserInput, workUserLabel, selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile};

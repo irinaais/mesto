@@ -11,8 +11,8 @@ import {
   popupAddCard,
   openPopupAddCardButton,
   elements,
-  selectorNameUserLabel,
-  selectorWorkUserLabel,
+  nameUserLabelSelector,
+  workUserLabelSelector,
   popupEdit,
   openPopupEditProfileButton,
   nameUserInput,
@@ -25,7 +25,7 @@ import {
 } from "../utils/constants.js";
 
 const imgPopup = new PopupWithImage(selectorPopupViewCard);
-const userInfo = new UserInfo({ selectorNameUserLabel, selectorWorkUserLabel });
+const userInfo = new UserInfo({nameUserSelector: ".profile__title", workUserSelector: ".profile__subtitle"});
 
 function createCard(name, link) {
   const card = new Card(name, link, '#template', () => imgPopup.open({name, link})
@@ -65,24 +65,18 @@ openPopupAddCardButton.addEventListener('click', function () {
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
   userInfo.setUserInfo(formValues);
+  popupEditProfileForm.close();
 });
 
 popupEditProfileForm.setEventListeners();
 
 openPopupEditProfileButton.addEventListener('click', function () {
-  validatorProfileForm.resetValidation();
-  popupEditProfileForm.open();
   const userData = userInfo.getUserInfo();
   nameUserInput.value = userData.nameUser;
   workUserInput.value = userData.workUser;
+  validatorProfileForm.resetValidation();
+  popupEditProfileForm.open();
 });
-
-popupEdit.addEventListener('submit', function (evt) {
-  evt.preventDefault();
-  nameUserLabel.textContent = nameUserInput.value;
-  workUserLabel.textContent = workUserInput.value;
-  popupEditProfileForm.close();
-})
 
 // =============== экземпляры класса FormValidator и валидация форм ============
 const validatorCardForm = new FormValidator(settings, popupAddCard);
