@@ -8,12 +8,12 @@ import UserInfo from "../components/UserInfo.js";
 import {
   initialCards,
   settings,
-  popupAddCard,
+  formPopupAddCard,
   openPopupAddCardButton,
   elements,
   nameUserLabelSelector,
   workUserLabelSelector,
-  popupEdit,
+  formPopupEdit,
   openPopupEditProfileButton,
   nameUserInput,
   nameUserLabel,
@@ -79,8 +79,8 @@ openPopupEditProfileButton.addEventListener('click', function () {
 });
 
 // =============== экземпляры класса FormValidator и валидация форм ============
-const validatorCardForm = new FormValidator(settings, popupAddCard);
-const validatorProfileForm = new FormValidator(settings, popupEdit);
+const validatorCardForm = new FormValidator(settings, formPopupAddCard);
+const validatorProfileForm = new FormValidator(settings, formPopupEdit);
 
 validatorProfileForm.enableValidation();
 validatorCardForm.enableValidation();
