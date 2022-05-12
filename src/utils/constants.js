@@ -60,8 +60,10 @@ const workUserInput = popupEdit.querySelector(".popup__input_work-user");
 // const selectorWorkUserInput = (".popup__input_work-user");
 const nameUserLabelSelector = (".profile__title");
 const workUserLabelSelector = (".profile__subtitle");
+const imgUrl = document.querySelector('.popup__img');
+const imgName = document.querySelector('.popup__img-info');
 
 
-export {initialCards, settings, formPopupAddCard, openPopupAddCardButton, elements,
+export {initialCards, settings, formPopupAddCard, openPopupAddCardButton, elements, imgUrl, imgName,
   nameUserLabelSelector, workUserLabelSelector, formPopupEdit, openPopupEditProfileButton, nameUserInput, nameUserLabel,
   workUserInput, workUserLabel, selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile};

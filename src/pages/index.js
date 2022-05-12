@@ -21,10 +21,12 @@ import {
   workUserLabel,
   selectorPopupViewCard,
   selectorPopupAddCard,
-  selectorPopupEditProfile
+  selectorPopupEditProfile,
+  imgUrl,
+  imgName,
 } from "../utils/constants.js";
 
-const imgPopup = new PopupWithImage(selectorPopupViewCard);
+const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
 const userInfo = new UserInfo({nameUserSelector: ".profile__title", workUserSelector: ".profile__subtitle"});
 
 function createCard(name, link) {
