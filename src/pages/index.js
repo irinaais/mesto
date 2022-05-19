@@ -5,26 +5,54 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 import {
   initialCards,
   settings,
   formPopupAddCard,
   openPopupAddCardButton,
   elements,
-  nameUserLabelSelector,
-  workUserLabelSelector,
   formPopupEdit,
   openPopupEditProfileButton,
   nameUserInput,
-  nameUserLabel,
   workUserInput,
-  workUserLabel,
   selectorPopupViewCard,
   selectorPopupAddCard,
   selectorPopupEditProfile,
   imgUrl,
   imgName,
 } from "../utils/constants.js";
+
+let userId;
+
+const api = new Api({
+  url: 'https://mesto.nomoreparties.co/v1/cohort-41',
+  headers: {
+    authorization: 'd88185d7-a57f-426c-977a-fbfd58d99413',
+    "Content-Type": "application/json"
+  }
+});
+
+// api.getUserInfo()
+//   .then((user) => {
+//     console.log('user', user);
+//     // userId  = user._id
+//     userInfo.setUserInfo(user.name, user.about);
+//     userInfo.setUserAvatar(user.avatar);
+//   })
+// const cards = api.getInitialCards();
+// cards.then((data) => {
+//   const defaultCardList = new Section({
+//     items: initialCards,
+//     renderer: (data) => {
+//       const card = createCard(data.name, data.link);
+//       defaultCardList.addItem(card);
+//     }
+//   }, elements);
+//
+//   defaultCardList.renderItems();
+// })
+//   .catch(err => console.log(err));
 
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
 const userInfo = new UserInfo({nameUserSelector: ".profile__title", workUserSelector: ".profile__subtitle"});
