@@ -23,7 +23,7 @@ import {
   imgName,
 } from "../utils/constants.js";
 
-// let userId;
+let userId;
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-41',
@@ -43,8 +43,8 @@ api.getUserInfo()
       cohort: res.cohort
     }
     userInfo.setUserInfo(userData);
-    // userId  = user._id
-    // userInfo.setUserAvatar(user.avatar);
+    userId  = res._id
+    userInfo.setUserAvatar(userData);
   })
 // const cards = api.getInitialCards();
 // cards.then((data) => {
@@ -61,7 +61,11 @@ api.getUserInfo()
 //   .catch(err => console.log(err));
 
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
-const userInfo = new UserInfo({nameUserSelector: ".profile__title", workUserSelector: ".profile__subtitle"});
+const userInfo = new UserInfo({
+  nameUserSelector: ".profile__title",
+  workUserSelector: ".profile__subtitle",
+  avatarUserSelector: ".profile__avatar"
+});
 
 function createCard(name, link) {
   const card = new Card(name, link, '#template', () => imgPopup.open({name, link})
