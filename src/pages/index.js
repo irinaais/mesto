@@ -33,6 +33,13 @@ const api = new Api({
   }
 });
 
+// ================== получаем с сервера данные о пользователе и добавляем их на сайт ============================================
+const userInfo = new UserInfo({
+  nameUserSelector: ".profile__title",
+  workUserSelector: ".profile__subtitle",
+  avatarUserSelector: ".profile__avatar"
+});
+
 api.getUserInfo()
   .then((res) => {
     const userData = {
@@ -43,29 +50,30 @@ api.getUserInfo()
       cohort: res.cohort
     }
     userInfo.setUserInfo(userData);
-    userId  = res._id
+    userId = res._id;
     userInfo.setUserAvatar(userData);
   })
-// const cards = api.getInitialCards();
-// cards.then((data) => {
-//   const defaultCardList = new Section({
-//     items: initialCards,
-//     renderer: (data) => {
-//       const card = createCard(data.name, data.link);
-//       defaultCardList.addItem(card);
-//     }
-//   }, elements);
-//
-//   defaultCardList.renderItems();
-// })
-//   .catch(err => console.log(err));
+  .catch(err => console.log(err));
+
+// =================== получаем карточки с сервера и добавляем на стр ============================================
+api.getInitialCards()
+  .then((res) => {
+  const initialCards = res;
+  const defaultCardList = new Section({
+    items: initialCards,
+    renderer: (item) => {
+      const card = createCard(item.name, item.link);
+      defaultCardList.addItem(card);
+    }
+  }, elements);
+  defaultCardList.renderItems();
+})
+  .catch(err => console.log(err));
+
+
+
 
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
-const userInfo = new UserInfo({
-  nameUserSelector: ".profile__title",
-  workUserSelector: ".profile__subtitle",
-  avatarUserSelector: ".profile__avatar"
-});
 
 function createCard(name, link) {
   const card = new Card(name, link, '#template', () => imgPopup.open({name, link})
@@ -78,15 +86,15 @@ function createCard(name, link) {
 imgPopup.setEventListeners();
 
 // =========================== создание карточек из массива ============================================
-const defaultCardList = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = createCard(item.name, item.link);
-    defaultCardList.addItem(card);
-  }
-}, elements);
-
-defaultCardList.renderItems();
+// const defaultCardList = new Section({
+//   items: initialCards,
+//   renderer: (item) => {
+//     const card = createCard(item.name, item.link);
+//     defaultCardList.addItem(card);
+//   }
+// }, elements);
+//
+// defaultCardList.renderItems();
 
 // =========================== popup add card ============================================
 const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
