@@ -27,6 +27,18 @@ export default class Api {
       .then(error);
   }
 
+  saveUserInfo(userData) {
+    return fetch(this._url + '/users/me', {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: userData.nameUser,
+        about: userData.workUser
+      })
+    })
+      .then(error);
+  }
+
   // getUserInfoAndInitialCards() {
   //   return Promise.all([this.getInitialCards(), this.getUserInfo()])
   // }

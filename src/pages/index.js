@@ -113,7 +113,11 @@ openPopupAddCardButton.addEventListener('click', function () {
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
   userInfo.setUserInfo(formValues);
-  popupEditProfileForm.close();
+  api.saveUserInfo(formValues)
+    .then(() => {
+      popupEditProfileForm.close();
+    })
+    .catch(err => console.log(err));
 });
 
 popupEditProfileForm.setEventListeners();
