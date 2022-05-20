@@ -12,8 +12,8 @@ export default class UserInfo {
     return info;
   }
 
-  setUserInfo(formValues) {
-    this._nameUser.textContent = formValues.nameUser;
-    this._workUser.textContent = formValues.workUser;
+  setUserInfo(userData) {
+    this._nameUser.textContent = userData.nameUser;
+    this._workUser.textContent = userData.workUser;
   }
 }

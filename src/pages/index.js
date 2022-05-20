@@ -23,7 +23,7 @@ import {
   imgName,
 } from "../utils/constants.js";
 
-let userId;
+// let userId;
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-41',
@@ -33,13 +33,19 @@ const api = new Api({
   }
 });
 
-// api.getUserInfo()
-//   .then((user) => {
-//     console.log('user', user);
-//     // userId  = user._id
-//     userInfo.setUserInfo(user.name, user.about);
-//     userInfo.setUserAvatar(user.avatar);
-//   })
+api.getUserInfo()
+  .then((res) => {
+    const userData = {
+      nameUser: res.name,
+      workUser: res.about,
+      avatar: res.avatar,
+      _id: res._id,
+      cohort: res.cohort
+    }
+    userInfo.setUserInfo(userData);
+    // userId  = user._id
+    // userInfo.setUserAvatar(user.avatar);
+  })
 // const cards = api.getInitialCards();
 // cards.then((data) => {
 //   const defaultCardList = new Section({
