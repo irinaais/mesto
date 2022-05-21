@@ -39,6 +39,15 @@ export default class Api {
       .then(error);
   }
 
+  addCard(data) {
+    return fetch(this._url + '/cards', {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(data)
+    })
+      .then(error);
+  }
+
   // getUserInfoAndInitialCards() {
   //   return Promise.all([this.getInitialCards(), this.getUserInfo()])
   // }

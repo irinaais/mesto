@@ -7,7 +7,6 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import {
-  initialCards,
   settings,
   formPopupAddCard,
   openPopupAddCardButton,
@@ -58,16 +57,16 @@ api.getUserInfo()
 // =================== получаем карточки с сервера и добавляем на стр ============================================
 api.getInitialCards()
   .then((res) => {
-  const initialCards = res;
-  const defaultCardList = new Section({
-    items: initialCards,
-    renderer: (item) => {
-      const card = createCard(item.name, item.link);
-      defaultCardList.addItem(card);
-    }
-  }, elements);
-  defaultCardList.renderItems();
-})
+    const initialCards = res;
+    const defaultCardList = new Section({
+      items: initialCards,
+      renderer: (item) => {
+        const card = createCard(item.name, item.link);
+        defaultCardList.addItem(card);
+      }
+    }, elements);
+    defaultCardList.renderItems();
+  })
   .catch(err => console.log(err));
 
 
@@ -98,9 +97,20 @@ imgPopup.setEventListeners();
 
 // =========================== popup add card ============================================
 const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
-  const card = createCard(formValues.name, formValues.link);
-  defaultCardList.addItem(card);
-  popupWithAddCardForm.close();
+  api.addCard(formValues)
+    .then((res) => {
+      const card = createCard(res.name, res.link);
+      const cardList = new Section({
+        items: card,
+        renderer: (item) => {
+          const card = createCard(item.name, item.link);
+          cardList.addItem(card);
+        }
+      }, elements);
+      cardList.addItem(card);
+      popupWithAddCardForm.close();
+    })
+    .catch(err => console.log(err));
 });
 
 popupWithAddCardForm.setEventListeners();
@@ -109,6 +119,12 @@ openPopupAddCardButton.addEventListener('click', function () {
   validatorCardForm.resetValidation();
   popupWithAddCardForm.open();
 });
+
+// const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
+//   const card = createCard(formValues.name, formValues.link);
+//   defaultCardList.addItem(card);
+//   popupWithAddCardForm.close();
+// });
 
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
