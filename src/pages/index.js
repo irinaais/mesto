@@ -117,6 +117,7 @@ openPopupAddCardButton.addEventListener('click', function () {
 
 // ========================== popup delete card =========================================
 const popupDeleteCard = new Popup(selectorPopupDeleteCard);
+popupDeleteCard.setEventListeners();
 
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
