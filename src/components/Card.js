@@ -1,9 +1,10 @@
 export default class Card {
-  constructor(name, link, cardSelector, handleCardClick) {
+  constructor(name, link, cardSelector, handleCardClick, popupDeleteCard) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._popupDeleteCard = popupDeleteCard;
   }
 
   _getTemplate() {
@@ -19,7 +20,8 @@ export default class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector('.element__image');
-    this._like = this._element.querySelector('.button_variant_like')
+    this._like = this._element.querySelector('.button_variant_like');
+    this._delete = this._element.querySelector('.button_variant_delete');
     this._setEventListeners();
 
     this._element.querySelector('.element__town').textContent = this._name;
@@ -33,9 +35,16 @@ export default class Card {
     this._like.addEventListener('click', () => {
       this._likeCard();
     });
-    this._element.querySelector('.button_variant_delete').addEventListener('click', () => {
-      this._deleteCard();
+
+    // this._element.querySelector('.button_variant_delete').addEventListener('click', () => {
+    //   this._deleteCard();
+    // });
+
+    this._delete.addEventListener('click', () => {
+      this._popupDeleteCard.open();
+      // this._deleteCard();
     });
+
     this._cardImage.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);
     });

@@ -44,6 +44,7 @@
 @import url(../blocks/popup/__view-card/popup__view-card.css);
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__img-info/popup__img-info.css);
+@import url(../blocks/popup/__delete-card/popup__delete-card.css);
 
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_variant/_edit/button_variant_edit.css);
