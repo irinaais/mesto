@@ -37,8 +37,9 @@ export default class Card {
     });
 
     this._delete.addEventListener('click', () => {
-      this._popupDeleteCard.open();
-      // this._deleteCard();
+      this._popupDeleteCard.open(() => {
+        this._deleteCard();
+      });
     });
 
     this._cardImage.addEventListener('click', () => {
