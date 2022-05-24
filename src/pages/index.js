@@ -1,12 +1,12 @@
 import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
+import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import {settings, formPopupAddCard, openPopupAddCardButton, elements, formPopupEdit, openPopupEditProfileButton, nameUserInput, workUserInput,
   selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile, imgUrl, imgName, selectorPopupDeleteCard} from "../utils/constants.js";
 
@@ -116,7 +116,7 @@ openPopupAddCardButton.addEventListener('click', function () {
 // });
 
 // ========================== popup delete card =========================================
-const popupDeleteCard = new Popup(selectorPopupDeleteCard);
+const popupDeleteCard = new PopupWithConfirm(selectorPopupDeleteCard);
 popupDeleteCard.setEventListeners();
 
 // ========================== popup edit profile =========================================

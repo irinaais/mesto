@@ -36,10 +36,6 @@ export default class Card {
       this._likeCard();
     });
 
-    // this._element.querySelector('.button_variant_delete').addEventListener('click', () => {
-    //   this._deleteCard();
-    // });
-
     this._delete.addEventListener('click', () => {
       this._popupDeleteCard.open();
       // this._deleteCard();
