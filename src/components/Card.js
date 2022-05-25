@@ -23,6 +23,9 @@ export default class Card {
     this._cardImage = this._element.querySelector('.element__image');
     this._like = this._element.querySelector('.button_variant_like');
     this._delete = this._element.querySelector('.button_variant_delete');
+    if (Math.random() > 0.5) {
+      this._delete.remove();
+    }
     this._setEventListeners();
 
     this._element.querySelector('.element__town').textContent = this._name;
