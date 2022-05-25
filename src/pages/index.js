@@ -49,7 +49,7 @@ api.getInitialCards()
     const defaultCardList = new Section({
       items: initialCards,
       renderer: (item) => {
-        const card = createCard(item.name, item.link);
+        const card = createCard(item.name, item.link, item._id);
         defaultCardList.addItem(card);
       }
     }, elements);
@@ -62,10 +62,9 @@ api.getInitialCards()
 
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
 
-function createCard(name, link) {
+function createCard(name, link, id) {
   const card = new Card(name, link, '#template', () => imgPopup.open({name, link}),
-    popupDeleteCard
-  );
+    popupDeleteCard, id);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -88,11 +87,11 @@ imgPopup.setEventListeners();
 const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
   api.addCard(formValues)
     .then((res) => {
-      const card = createCard(res.name, res.link);
+      const card = createCard(res.name, res.link, res._id);
       const cardList = new Section({
         items: card,
         renderer: (item) => {
-          const card = createCard(item.name, item.link);
+          const card = createCard(item.name, item.link, item._id);
           cardList.addItem(card);
         }
       }, elements);
@@ -145,3 +144,4 @@ const validatorProfileForm = new FormValidator(settings, formPopupEdit);
 
 validatorProfileForm.enableValidation();
 validatorCardForm.enableValidation();
+

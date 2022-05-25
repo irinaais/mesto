@@ -1,10 +1,11 @@
 export default class Card {
-  constructor(name, link, cardSelector, handleCardClick, popupDeleteCard) {
+  constructor(name, link, cardSelector, handleCardClick, popupDeleteCard, id) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._popupDeleteCard = popupDeleteCard;
+    this._id = id;
   }
 
   _getTemplate() {
