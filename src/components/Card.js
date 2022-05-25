@@ -18,12 +18,12 @@ export default class Card {
     return template;
   }
 
-  generateCard() {
+  generateCard(userId) {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector('.element__image');
     this._like = this._element.querySelector('.button_variant_like');
     this._delete = this._element.querySelector('.button_variant_delete');
-    if (Math.random() > 0.5) {
+    if (this._id !== userId) {
       this._delete.remove();
     }
     this._setEventListeners();
