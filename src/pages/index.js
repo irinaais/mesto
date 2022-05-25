@@ -49,7 +49,7 @@ api.getInitialCards()
     const defaultCardList = new Section({
       items: initialCards,
       renderer: (item) => {
-        const card = createCard(item.name, item.link, item.owner._id);
+        const card = createCard(item.name, item.link, item.owner._id, item._id);
         defaultCardList.addItem(card);
       }
     }, elements);
@@ -62,9 +62,9 @@ api.getInitialCards()
 
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
 
-function createCard(name, link, id) {
+function createCard(name, link, ownerId, cardId) {
   const card = new Card(name, link, '#template', () => imgPopup.open({name, link}),
-    popupDeleteCard, id);
+    popupDeleteCard, ownerId, cardId, api);
   const cardElement = card.generateCard(userId);
   return cardElement;
 }
@@ -87,11 +87,11 @@ imgPopup.setEventListeners();
 const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
   api.addCard(formValues)
     .then((res) => {
-      const card = createCard(res.name, res.link, res.owner._id);
+      const card = createCard(res.name, res.link, res.owner._id, res._id);
       const cardList = new Section({
         items: card,
         renderer: (item) => {
-          const card = createCard(item.name, item.link, item.owner._id);
+          const card = createCard(item.name, item.link, item.owner._id, item._id);
           cardList.addItem(card);
         }
       }, elements);

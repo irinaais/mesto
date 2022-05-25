@@ -48,6 +48,14 @@ export default class Api {
       .then(error);
   }
 
+  deleteCard(cardId) {
+    return fetch(this._url + `/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+      .then(error);
+  }
+
   // getUserInfoAndInitialCards() {
   //   return Promise.all([this.getInitialCards(), this.getUserInfo()])
   // }
