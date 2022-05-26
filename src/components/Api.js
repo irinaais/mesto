@@ -56,6 +56,22 @@ export default class Api {
       .then(error);
   }
 
+  likeCard(cardId) {
+    return fetch(this._url + `/cards/${cardId}/likes`, {
+      method: 'PUT',
+      headers: this._headers
+    })
+      .then(error);
+  }
+
+  deleteLikeCard(cardId) {
+    return fetch(this._url + `/cards/${cardId}/likes`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+      .then(error);
+  }
+
   // getUserInfoAndInitialCards() {
   //   return Promise.all([this.getInitialCards(), this.getUserInfo()])
   // }
