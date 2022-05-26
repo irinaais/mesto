@@ -37,9 +37,18 @@ export default class Card {
     return this._element;
   }
 
+  // _setEventListeners() {
+  //   this._like.addEventListener('click', () => {
+  //     this._likeCard();
+  //   });
+
   _setEventListeners() {
     this._like.addEventListener('click', () => {
-      this._likeCard();
+      this._api.likeCard(this._cardId)
+        .then(() => {
+          this._likeCard();
+        })
+        .catch(err => console.log(err));
     });
 
     this._delete.addEventListener('click', () => {
@@ -57,8 +66,12 @@ export default class Card {
     });
   }
 
+  // _likeCard() {
+  //   this._like.classList.toggle('button_variant_active-like');
+  // }
+
   _likeCard() {
-    this._like.classList.toggle('button_variant_active-like');
+    this._like.classList.add('button_variant_active-like');
   }
 
   _deleteCard() {
