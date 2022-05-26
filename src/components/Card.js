@@ -44,11 +44,19 @@ export default class Card {
 
   _setEventListeners() {
     this._like.addEventListener('click', () => {
-      this._api.likeCard(this._cardId)
-        .then(() => {
-          this._likeCard();
-        })
-        .catch(err => console.log(err));
+      if (!(this._like.classList.contains('button_variant_active-like'))) {
+        this._api.likeCard(this._cardId)
+          .then(() => {
+            this._likeCard();
+          })
+          .catch(err => console.log(err));
+      } else {
+        this._api.deleteLikeCard(this._cardId)
+          .then(() => {
+            this._deleteLikeCard();
+          })
+          .catch(err => console.log(err));
+      }
     });
 
     this._delete.addEventListener('click', () => {
@@ -72,6 +80,10 @@ export default class Card {
 
   _likeCard() {
     this._like.classList.add('button_variant_active-like');
+  }
+
+  _deleteLikeCard() {
+    this._like.classList.remove('button_variant_active-like');
   }
 
   _deleteCard() {
