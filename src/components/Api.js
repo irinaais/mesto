@@ -72,6 +72,18 @@ export default class Api {
       .then(error);
   }
 
+  //TODO method editAvatar
+  editAvatar(userData) {
+    return fetch(this._url + '/users/me/avatar}', {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: userData.avatar
+      })
+    })
+      .then(error);
+  }
+
   // getUserInfoAndInitialCards() {
   //   return Promise.all([this.getInitialCards(), this.getUserInfo()])
   // }
