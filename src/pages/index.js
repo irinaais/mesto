@@ -9,7 +9,7 @@ import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import {settings, formPopupAddCard, openPopupAddCardButton, elements, formPopupEdit, openPopupEditProfileButton, nameUserInput, workUserInput,
   selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile, imgUrl, imgName, selectorPopupDeleteCard, buttonEditAvatar,
-  selectorPopupEditAvatar} from "../utils/constants.js";
+  selectorPopupEditAvatar, formPopupAvatar} from "../utils/constants.js";
 
 let userId;
 
@@ -154,7 +154,9 @@ buttonEditAvatar.addEventListener('click', function () {
 // =============== экземпляры класса FormValidator и валидация форм ===========================
 const validatorCardForm = new FormValidator(settings, formPopupAddCard);
 const validatorProfileForm = new FormValidator(settings, formPopupEdit);
+const validatorAvatarForm = new FormValidator(settings, formPopupAvatar);
 
 validatorProfileForm.enableValidation();
 validatorCardForm.enableValidation();
+validatorAvatarForm.enableValidation();
 

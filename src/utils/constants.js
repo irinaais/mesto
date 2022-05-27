@@ -51,6 +51,8 @@ const imgName = document.querySelector('.popup__img-info');
 const selectorPopupDeleteCard = ".popup_delete-card";
 const buttonEditAvatar = document.querySelector(".button_variant_avatar");
 const selectorPopupEditAvatar = ".popup_edit-avatar";
+const popupAvatar = document.querySelector(".popup_edit-avatar");
+const formPopupAvatar = popupAvatar.querySelector(".popup__form");
 // const closePopupAddCardButton = popupAddCard.querySelector(".popup__close-button");
 // const closePopupEditProfileButton = popupEdit.querySelector(".popup__close-button");
 // const popupImg = document.querySelector('.popup__img');
@@ -68,4 +70,4 @@ const selectorPopupEditAvatar = ".popup_edit-avatar";
 export {settings, formPopupAddCard, openPopupAddCardButton, elements, imgUrl, imgName,
   formPopupEdit, openPopupEditProfileButton, nameUserInput,
   workUserInput, selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile, selectorPopupDeleteCard,
-  buttonEditAvatar, selectorPopupEditAvatar};
+  buttonEditAvatar, selectorPopupEditAvatar, formPopupAvatar};
