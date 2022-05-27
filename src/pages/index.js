@@ -142,7 +142,7 @@ openPopupEditProfileButton.addEventListener('click', function () {
 // ========================== popup edit profile avatar =========================================
 const popupEditAvatar = new PopupWithForm(selectorPopupEditAvatar, (formValue) => {
   api.editAvatar(formValue)
-    .then((res) => {
+    .then(() => {
       userInfo.setUserAvatar(formValue);
       popupEditAvatar.close();
     })
@@ -152,7 +152,7 @@ const popupEditAvatar = new PopupWithForm(selectorPopupEditAvatar, (formValue) =
 popupEditAvatar.setEventListeners();
 
 buttonEditAvatar.addEventListener('click', function () {
-  // console.log('нажали на кнопку');
+  validatorAvatarForm.resetValidation();
   popupEditAvatar.open();
 })
 
