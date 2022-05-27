@@ -40,7 +40,6 @@ api.getUserInfo()
     userInfo.setUserInfo(userData);
     userId = res._id;
     userInfo.setUserAvatar(userData);
-    // console.log(userData)
   })
   .catch(err => console.log(err));
 
@@ -142,13 +141,12 @@ openPopupEditProfileButton.addEventListener('click', function () {
 
 // ========================== popup edit profile avatar =========================================
 const popupEditAvatar = new PopupWithForm(selectorPopupEditAvatar, (formValue) => {
-  userInfo.setUserAvatar(formValue);
-  popupEditAvatar.close();
-  // api.editAvatar(formValue)
-  //   .then((res) => {
-  //     // console.log(res)
-  //   })
-
+  api.editAvatar(formValue)
+    .then((res) => {
+      userInfo.setUserAvatar(formValue);
+      popupEditAvatar.close();
+    })
+    .catch(err => console.log(err));
 });
 
 popupEditAvatar.setEventListeners();
