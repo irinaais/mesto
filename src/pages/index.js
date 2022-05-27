@@ -8,7 +8,8 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import {settings, formPopupAddCard, openPopupAddCardButton, elements, formPopupEdit, openPopupEditProfileButton, nameUserInput, workUserInput,
-  selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile, imgUrl, imgName, selectorPopupDeleteCard, buttonEditAvatar} from "../utils/constants.js";
+  selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile, imgUrl, imgName, selectorPopupDeleteCard, buttonEditAvatar,
+  selectorPopupEditAvatar} from "../utils/constants.js";
 
 let userId;
 
@@ -139,8 +140,15 @@ openPopupEditProfileButton.addEventListener('click', function () {
 });
 
 // ========================== popup edit profile avatar =========================================
+const popupEditAvatar = new PopupWithForm(selectorPopupEditAvatar, (formValue) => {
+  userInfo.setUserAvatar();
+});
+
+popupEditAvatar.setEventListeners();
+
 buttonEditAvatar.addEventListener('click', function () {
-  console.log('нажали на кнопку');
+  // console.log('нажали на кнопку');
+  popupEditAvatar.open();
 })
 
 // =============== экземпляры класса FormValidator и валидация форм ===========================
