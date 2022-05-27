@@ -74,11 +74,13 @@ export default class Api {
 
   //TODO method editAvatar
   editAvatar(userData) {
+    // console.log(userData)
+    // console.log(userData)
     return fetch(this._url + '/users/me/avatar}', {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: userData.avatar
+        avatar: userData.link-avatar
       })
     })
       .then(error);
