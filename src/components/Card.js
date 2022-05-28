@@ -60,12 +60,16 @@ export default class Card {
         this._api.likeCard(this._cardId)
           .then(() => {
             this._likeCard();
+            let numLikeCount = Number(this._likeCount.textContent);
+            this._likeCount.textContent = numLikeCount + 1;
           })
           .catch(err => console.log(err));
       } else {
         this._api.deleteLikeCard(this._cardId)
           .then(() => {
             this._deleteLikeCard();
+            let numLikeCount = Number(this._likeCount.textContent);
+            this._likeCount.textContent = numLikeCount - 1;
           })
           .catch(err => console.log(err));
       }
