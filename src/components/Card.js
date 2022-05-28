@@ -1,7 +1,8 @@
 export default class Card {
-  constructor(name, link, cardSelector, handleCardClick, popupDeleteCard, ownerId, cardId, api) {
+  constructor(name, link, likes, cardSelector, handleCardClick, popupDeleteCard, ownerId, cardId, api) {
     this._name = name;
     this._link = link;
+    this._likes = likes;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._popupDeleteCard = popupDeleteCard;
@@ -34,13 +35,24 @@ export default class Card {
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
 
+    this._likeCount = this._element.querySelector('.element__like-count');
+    this._likeCount.textContent = this._likes;
+
     return this._element;
   }
 
-  // _setEventListeners() {
-  //   this._like.addEventListener('click', () => {
-  //     this._likeCard();
-  //   });
+  _deleteCard() {
+    this._element.remove();
+    this._element = null;
+  }
+
+  _likeCard() {
+    this._like.classList.add('button_variant_active-like');
+  }
+
+  _deleteLikeCard() {
+    this._like.classList.remove('button_variant_active-like');
+  }
 
   _setEventListeners() {
     this._like.addEventListener('click', () => {
@@ -72,23 +84,6 @@ export default class Card {
     this._cardImage.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);
     });
-  }
-
-  // _likeCard() {
-  //   this._like.classList.toggle('button_variant_active-like');
-  // }
-
-  _likeCard() {
-    this._like.classList.add('button_variant_active-like');
-  }
-
-  _deleteLikeCard() {
-    this._like.classList.remove('button_variant_active-like');
-  }
-
-  _deleteCard() {
-    this._element.remove();
-    this._element = null;
   }
 }
 
