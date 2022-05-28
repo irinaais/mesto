@@ -58,9 +58,6 @@ api.getInitialCards()
   })
   .catch(err => console.log(err));
 
-
-
-
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
 
 function createCard(name, link, likes, ownerId, cardId) {
@@ -112,12 +109,6 @@ openPopupAddCardButton.addEventListener('click', function () {
   validatorCardForm.resetValidation();
   popupWithAddCardForm.open();
 });
-
-// const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
-//   const card = createCard(formValues.name, formValues.link);
-//   defaultCardList.addItem(card);
-//   popupWithAddCardForm.close();
-// });
 
 // ========================== popup delete card =========================================
 const popupDeleteCard = new PopupWithConfirm(selectorPopupDeleteCard);
