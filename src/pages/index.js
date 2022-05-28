@@ -86,6 +86,7 @@ imgPopup.setEventListeners();
 
 // =========================== popup add card ============================================
 const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
+  popupWithAddCardForm.loading(true);
   api.addCard(formValues)
     .then((res) => {
       const card = createCard(res.name, res.link, res.owner._id, res._id);
@@ -99,7 +100,10 @@ const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues
       cardList.addItem(card);
       popupWithAddCardForm.close();
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => {
+      popupWithAddCardForm.loading(false);
+  });
 });
 
 popupWithAddCardForm.setEventListeners();
@@ -122,11 +126,15 @@ popupDeleteCard.setEventListeners();
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
   userInfo.setUserInfo(formValues);
+  popupEditProfileForm.loading(true);
   api.saveUserInfo(formValues)
     .then(() => {
       popupEditProfileForm.close();
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => {
+      popupEditProfileForm.loading(false);
+    });
 });
 
 popupEditProfileForm.setEventListeners();
@@ -141,12 +149,16 @@ openPopupEditProfileButton.addEventListener('click', function () {
 
 // ========================== popup edit profile avatar =========================================
 const popupEditAvatar = new PopupWithForm(selectorPopupEditAvatar, (formValue) => {
+  popupEditAvatar.loading(true);
   api.editAvatar(formValue)
     .then(() => {
       userInfo.setUserAvatar(formValue);
       popupEditAvatar.close();
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => {
+      popupEditAvatar.loading(false);
+    });
 });
 
 popupEditAvatar.setEventListeners();
