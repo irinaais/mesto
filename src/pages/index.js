@@ -116,10 +116,10 @@ popupDeleteCard.setEventListeners();
 
 // ========================== popup edit profile =========================================
 const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
-  userInfo.setUserInfo(formValues);
   popupEditProfileForm.loading(true);
   api.saveUserInfo(formValues)
     .then(() => {
+      userInfo.setUserInfo(formValues);
       popupEditProfileForm.close();
     })
     .catch(err => console.log(err))
