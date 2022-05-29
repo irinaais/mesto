@@ -83,7 +83,7 @@ export default class Api {
       .then(error);
   }
 
-  // getUserInfoAndInitialCards() {
-  //   return Promise.all([this.getInitialCards(), this.getUserInfo()])
-  // }
+  getUserInfoAndInitialCards() {
+    return Promise.all([this.getInitialCards(), this.getUserInfo()])
+  }
 };

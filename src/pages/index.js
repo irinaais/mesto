@@ -35,21 +35,6 @@ const userInfo = new UserInfo({
   avatarUserSelector: ".profile__avatar"
 });
 
-api.getUserInfo()
-  .then((res) => {
-    const userData = {
-      nameUser: res.name,
-      workUser: res.about,
-      avatar: res.avatar,
-      _id: res._id,
-      cohort: res.cohort
-    }
-    userInfo.setUserInfo(userData);
-    userId = res._id;
-    userInfo.setUserAvatar(userData);
-  })
-  .catch(err => console.log(err));
-
 // =================== получаем карточки с сервера и добавляем на стр ============================================
 const cardList = new Section({
   renderer: (item) => {
@@ -58,9 +43,20 @@ const cardList = new Section({
   }
 }, elements);
 
-api.getInitialCards()
-  .then((res) => {
-    cardList.renderItems(res);
+api.getUserInfoAndInitialCards()
+  .then(([cards, userData]) => {
+    const user = {
+      nameUser: userData.name,
+      workUser: userData.about,
+      avatar: userData.avatar,
+      _id: userData._id,
+      cohort: userData.cohort
+    }
+    userInfo.setUserInfo(user);
+    userId = userData._id;
+    userInfo.setUserAvatar(user);
+
+    cardList.renderItems(cards);
   })
   .catch(err => console.log(err));
 
