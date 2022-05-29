@@ -11,13 +11,11 @@ export default class PopupWithConfirm extends Popup {
     super.setEventListeners();
     this._buttonConfirmDeleteCard.addEventListener('click', () => {
       this._functionDeleteCard();
-      this.close();
     });
   }
 
   open(functionDeleteCard) {
     super.open();
     this._functionDeleteCard = functionDeleteCard;
-
   }
 }
