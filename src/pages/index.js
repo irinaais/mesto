@@ -21,6 +21,13 @@ const api = new Api({
   }
 });
 
+function createCard(name, link, likes, ownerId, cardId) {
+  const card = new Card(name, link, likes, '#template', () => imgPopup.open({name, link}),
+    popupDeleteCard, ownerId, cardId, api);
+  const cardElement = card.generateCard(userId);
+  return cardElement;
+}
+
 // ================== получаем с сервера данные о пользователе и добавляем их на сайт ============================================
 const userInfo = new UserInfo({
   nameUserSelector: ".profile__title",
@@ -44,42 +51,23 @@ api.getUserInfo()
   .catch(err => console.log(err));
 
 // =================== получаем карточки с сервера и добавляем на стр ============================================
+const cardList = new Section({
+  renderer: (item) => {
+    const card = createCard(item.name, item.link, item.likes.length, item.owner._id, item._id);
+    cardList.addItem(card);
+  }
+}, elements);
+
 api.getInitialCards()
   .then((res) => {
-    const initialCards = res;
-    const defaultCardList = new Section({
-      items: initialCards,
-      renderer: (item) => {
-        const card = createCard(item.name, item.link, item.likes.length, item.owner._id, item._id);
-        defaultCardList.addItem(card);
-      }
-    }, elements);
-    defaultCardList.renderItems();
+    cardList.renderItems(res);
   })
   .catch(err => console.log(err));
 
+// =========================== открытие и закрытие попапа с карточкой ============================================
 const imgPopup = new PopupWithImage(selectorPopupViewCard, imgUrl, imgName);
 
-function createCard(name, link, likes, ownerId, cardId) {
-  const card = new Card(name, link, likes, '#template', () => imgPopup.open({name, link}),
-    popupDeleteCard, ownerId, cardId, api);
-  const cardElement = card.generateCard(userId);
-  return cardElement;
-}
-
-// =========================== открытие и закрытие попапа с карточкой ============================================
 imgPopup.setEventListeners();
-
-// =========================== создание карточек из массива ============================================
-// const defaultCardList = new Section({
-//   items: initialCards,
-//   renderer: (item) => {
-//     const card = createCard(item.name, item.link);
-//     defaultCardList.addItem(card);
-//   }
-// }, elements);
-//
-// defaultCardList.renderItems();
 
 // =========================== popup add card ============================================
 const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues) => {
@@ -87,20 +75,13 @@ const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues
   api.addCard(formValues)
     .then((res) => {
       const card = createCard(res.name, res.link, res.likes.length, res.owner._id, res._id);
-      const cardList = new Section({
-        items: card,
-        renderer: (item) => {
-          const card = createCard(item.name, item.link, item.likes.length, item.owner._id, item._id);
-          cardList.addItem(card);
-        }
-      }, elements);
       cardList.addItem(card);
       popupWithAddCardForm.close();
     })
     .catch(err => console.log(err))
     .finally(() => {
       popupWithAddCardForm.loading(false);
-  });
+    });
 });
 
 popupWithAddCardForm.setEventListeners();
