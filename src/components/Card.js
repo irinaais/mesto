@@ -1,5 +1,5 @@
 export default class Card {
-  constructor(name, link, likes, cardSelector, handleCardClick, popupDeleteCard, ownerId, cardId, api) {
+  constructor(name, link, likes, cardSelector, handleCardClick, popupDeleteCard, ownerId, cardId, api, handleLikeCard) {
     this._name = name;
     this._link = link;
     this._likes = likes;
@@ -9,6 +9,7 @@ export default class Card {
     this._ownerId = ownerId;
     this._cardId = cardId;
     this._api = api;
+    this._handleLikeCard = handleLikeCard;
   }
 
   _getTemplate() {
@@ -36,7 +37,7 @@ export default class Card {
     this._cardImage.alt = this._name;
 
     this._likeCount = this._element.querySelector('.element__like-count');
-    this._likeCount.textContent = this._likes;
+    this.setLikesCount(this._likes);
 
     return this._element;
   }
@@ -46,40 +47,37 @@ export default class Card {
     this._element = null;
   }
 
-  _likeCard() {
+  likeCard() {
     this._like.classList.add('button_variant_active-like');
   }
 
-  _deleteLikeCard() {
+  deleteLikeCard() {
     this._like.classList.remove('button_variant_active-like');
   }
 
+  isLiked() {
+    return this._like.classList.contains('button_variant_active-like');
+  }
+
+  isLikedByMe(likesArr) {
+    return likesArr.some(like => {
+      return like._id === this._ownerId;
+    })
+  }
+
+  setLikesCount(likesCount) {
+    this._likeCount.textContent = likesCount;
+  }
+
   _setEventListeners() {
-    this._like.addEventListener('click', () => {
-      if (!(this._like.classList.contains('button_variant_active-like'))) {
-        this._api.likeCard(this._cardId)
-          .then(() => {
-            this._likeCard();
-            let numLikeCount = Number(this._likeCount.textContent);
-            this._likeCount.textContent = numLikeCount + 1;
-          })
-          .catch(err => console.log(err));
-      } else {
-        this._api.deleteLikeCard(this._cardId)
-          .then(() => {
-            this._deleteLikeCard();
-            let numLikeCount = Number(this._likeCount.textContent);
-            this._likeCount.textContent = numLikeCount - 1;
-          })
-          .catch(err => console.log(err));
-      }
-    });
+    this._like.addEventListener('click', () => this._handleLikeCard());
 
     this._delete.addEventListener('click', () => {
       this._popupDeleteCard.open(() => {
         this._api.deleteCard(this._cardId)
           .then(() => {
             this._deleteCard();
+            this._popupDeleteCard.close()
           })
           .catch(err => console.log(err));
       });

@@ -22,9 +22,45 @@ const api = new Api({
 });
 
 function createCard(name, link, likes, ownerId, cardId) {
-  const card = new Card(name, link, likes, '#template', () => imgPopup.open({name, link}),
-    popupDeleteCard, ownerId, cardId, api);
+  const card = new Card(
+    name,
+    link,
+    likes.length,
+    '#template',
+    () => imgPopup.open({name, link}),
+    popupDeleteCard,
+    ownerId,
+    cardId,
+    api,
+    () => {
+      if (!card.isLiked()) {
+        api.likeCard(cardId)
+          .then((res) => {
+            card.likeCard();
+            card.setLikesCount(res.likes.length);
+          })
+          .catch(err => console.log(err));
+      } else {
+        api.deleteLikeCard(cardId)
+          .then((res) => {
+            card.deleteLikeCard();
+            card.setLikesCount(res.likes.length);
+          })
+          .catch(err => console.log(err));
+      }
+    }
+  );
+
   const cardElement = card.generateCard(userId);
+
+  if (card.isLikedByMe(likes)) {
+    api.likeCard(cardId)
+      .then(() => {
+        card.likeCard();
+      })
+      .catch(err => console.log(err));
+  }
+
   return cardElement;
 }
 
@@ -38,7 +74,7 @@ const userInfo = new UserInfo({
 // =================== получаем карточки с сервера и добавляем на стр ============================================
 const cardList = new Section({
   renderer: (item) => {
-    const card = createCard(item.name, item.link, item.likes.length, item.owner._id, item._id);
+    const card = createCard(item.name, item.link, item.likes, item.owner._id, item._id);
     cardList.addItem(card);
   }
 }, elements);
@@ -56,6 +92,7 @@ api.getUserInfoAndInitialCards()
     userId = userData._id;
     userInfo.setUserAvatar(user);
 
+
     cardList.renderItems(cards);
   })
   .catch(err => console.log(err));
@@ -70,7 +107,7 @@ const popupWithAddCardForm = new PopupWithForm(selectorPopupAddCard, (formValues
   popupWithAddCardForm.loading(true);
   api.addCard(formValues)
     .then((res) => {
-      const card = createCard(res.name, res.link, res.likes.length, res.owner._id, res._id);
+      const card = createCard(res.name, res.link, res.likes, res.owner._id, res._id);
       cardList.addItem(card);
       popupWithAddCardForm.close();
     })
