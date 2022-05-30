@@ -28,10 +28,7 @@ function createCard(name, link, likes, ownerId, cardId) {
     likes.length,
     '#template',
     () => imgPopup.open({name, link}),
-    popupDeleteCard,
     ownerId,
-    cardId,
-    api,
     () => {
       if (!card.isLiked()) {
         api.likeCard(cardId)
@@ -48,6 +45,16 @@ function createCard(name, link, likes, ownerId, cardId) {
           })
           .catch(err => console.log(err));
       }
+    },
+    () => {
+      popupDeleteCard.open(() => {
+        api.deleteCard(cardId)
+          .then(() => {
+            card._deleteCard();
+            popupDeleteCard.close()
+          })
+          .catch(err => console.log(err));
+      });
     }
   );
 
