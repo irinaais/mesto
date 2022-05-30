@@ -7,7 +7,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
-import {settings, formPopupAddCard, openPopupAddCardButton, elements, formPopupEdit, openPopupEditProfileButton, nameUserInput, workUserInput,
+import {settings, formPopupAddCard, openPopupAddCardButton, elements, formPopupEdit, openPopupEditProfileButton,
   selectorPopupViewCard, selectorPopupAddCard, selectorPopupEditProfile, imgUrl, imgName, selectorPopupDeleteCard, buttonEditAvatar,
   selectorPopupEditAvatar, formPopupAvatar} from "../utils/constants.js";
 
@@ -136,7 +136,8 @@ const popupDeleteCard = new PopupWithConfirm(selectorPopupDeleteCard);
 popupDeleteCard.setEventListeners();
 
 // ========================== popup edit profile =========================================
-const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile, (formValues) => {
+const popupEditProfileForm = new PopupWithForm(selectorPopupEditProfile,
+  (formValues) => {
   popupEditProfileForm.loading(true);
   api.saveUserInfo(formValues)
     .then(() => {
@@ -153,8 +154,7 @@ popupEditProfileForm.setEventListeners();
 
 openPopupEditProfileButton.addEventListener('click', function () {
   const userData = userInfo.getUserInfo();
-  nameUserInput.value = userData.nameUser;
-  workUserInput.value = userData.workUser;
+  popupEditProfileForm.setInputValues(userData);
   validatorProfileForm.resetValidation();
   popupEditProfileForm.open();
 });
