@@ -19,3 +19,16 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 767px) {
+    .button_variant_avatar {
+        top: 38px;
+        left: 72px;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    .button_variant_avatar {
+        top: 26px;
+    }
+}
